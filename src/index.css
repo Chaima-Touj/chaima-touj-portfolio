@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-outfit: 'Outfit', sans-serif;
+    --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+    --font-caveat: 'Caveat', cursive;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-jakarta);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark body {
+    background-color: #06020f;
+    color: #f1f5f9;
+  }
+
+  html.light body {
+    background-color: #faf7fd;
+    color: #1e1b4b;
+  }
+}
+
+/* Custom glow utility classes */
+.font-display {
+  font-family: var(--font-outfit);
+}
+
+.font-script {
+  font-family: var(--font-caveat);
+}
+
+.font-code {
+  font-family: var(--font-mono);
+}
+
+.glass-card {
+  background: rgba(14, 7, 28, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+}
+
+.glass-pill {
+  background: rgba(25, 12, 48, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(168, 85, 247, 0.28);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+html.light .glass-pill {
+  background: rgba(243, 232, 255, 0.85);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #3b0764;
+}
+
+.glow-purple {
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+}
+
+.glow-purple-lg {
+  box-shadow: 0 0 50px rgba(168, 85, 247, 0.45);
+}
+
+.glow-text {
+  text-shadow: 0 0 18px rgba(192, 132, 252, 0.6);
+}
+
+/* Custom animated gradient border */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-1.5deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float-gentle 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090314;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e1065;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7e22ce;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #f1e9fb;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #d8b4fe;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}

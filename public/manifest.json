@@ -1,0 +1,39 @@
+{
+  "id": "/",
+  "name": "Chaima Touj – Full Stack MERN Developer Portfolio",
+  "short_name": "Chaima Touj",
+  "description": "Portfolio of Chaima Touj, Full Stack Web Developer specializing in MongoDB, Express.js, React.js, and Node.js.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#070210",
+  "background_color": "#070210",
+  "categories": ["portfolio", "developer", "technology"],
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

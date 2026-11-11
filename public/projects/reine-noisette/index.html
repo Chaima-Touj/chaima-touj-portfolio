@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l’univers Reine Noisette : haute pâtisserie, pralinés artisanaux, créations signatures et galerie gourmande.">
+    <title>Reine Noisette — Maison de Haute Pâtisserie</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cormorant Garamond (Editorial Serif), Plus Jakarta Sans (Clean Geometric), Alex Brush (Poetic Script) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        /* Palette inspirée directement du Logo Reine Noisette :
+                           Crème Amande, Or Royal / Doré Champagne, Brun Noisette Torréfiée & Chocolat Princier */
+                        cream: {
+                            50: '#FDFBF7',
+                            100: '#FAF5EE',
+                            200: '#F3EAE0',
+                            300: '#E6D7C3',
+                        },
+                        /* Remplacement de olive par le Brun Noisette & Cacao Torréfié du logo */
+                        olive: {
+                            600: '#8C5832',
+                            700: '#5C3A21',
+                            800: '#4A2C18',
+                            900: '#2E1A0C',
+                        },
+                        hazelnut: {
+                            400: '#C48F65',
+                            500: '#A66E44',
+                            600: '#7D4E2D',
+                            700: '#5C3A21',
+                            800: '#3B2313',
+                        },
+                        gold: {
+                            300: '#EFE0B9',
+                            400: '#DFC184',
+                            500: '#C89D54',
+                            600: '#A67C37',
+                        },
+                        espresso: '#26170C'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        script: ['"Alex Brush"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAF5EE;
+            color: #26170C;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Monumental Background Typography in Roasted Hazelnut & Gold */
+        .hero-giant-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 0.82;
+            background: linear-gradient(180deg, #5C3A21 0%, #8C5832 60%, #C89D54 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            user-select: none;
+        }
+
+        /* Subtle Warm Silk & Praline Surface */
+        .marble-surface {
+            background: radial-gradient(circle at 50% 25%, rgba(253, 251, 247, 0.96) 0%, rgba(243, 234, 224, 0.78) 55%, rgba(230, 215, 195, 0.9) 100%);
+        }
+
+        /* Warm Golden & Hazelnut Glow */
+        .botanical-glow {
+            background: radial-gradient(ellipse at 80% 20%, rgba(200, 157, 84, 0.14) 0%, transparent 60%),
+                        radial-gradient(ellipse at 15% 60%, rgba(92, 58, 33, 0.09) 0%, transparent 50%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF5EE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5C3A21;
+            border-radius: 3px;
+        }
+
+        /* Pedestal Cake Shadow */
+        .cake-pedestal-shadow {
+            filter: drop-shadow(0 26px 30px rgba(46, 26, 12, 0.22));
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
+        }
+        .product-card:hover .cake-pedestal-shadow {
+            transform: translateY(-8px) scale(1.03);
+            filter: drop-shadow(0 35px 40px rgba(92, 58, 33, 0.3));
+        }
+
+        /* Gold Shimmer Border */
+        .gold-ring {
+            box-shadow: 0 0 0 1px rgba(200, 157, 84, 0.35), 0 15px 35px -10px rgba(46, 26, 12, 0.15);
+        }
+
+        /* Floating Animation */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-7px) rotate(1.5deg); }
+        }
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        :root { --rn-ink:#2d190e; --rn-brown:#6f4329; --rn-gold:#c99b55; --rn-cream:#faf5ee; }
+        html { scroll-behavior:smooth; scroll-padding-top:96px; }
+        body { background:#faf5ee; }
+        .brand-ribbon { min-height:34px; display:flex; align-items:center; justify-content:center; gap:14px; padding:7px 14px; background:#2e1a0c; color:#f6e8d4; font-size:9px; text-transform:uppercase; letter-spacing:.22em; text-align:center; }
+        .ribbon-dot { color:#d5ad70; font-size:12px; }
+        .site-header { background:rgba(250,245,238,.88); border-bottom:1px solid rgba(166,124,55,.25); backdrop-filter:blur(18px); transition:box-shadow .35s ease, background .35s ease; }
+        .site-header.is-scrolled { background:rgba(253,251,247,.96); box-shadow:0 12px 40px rgba(46,26,12,.08); }
+        .header-inner { min-height:88px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:22px; }
+        .desktop-nav { display:flex; align-items:center; gap:clamp(12px,1.7vw,26px); }
+        .desktop-nav a,.footer-links a { color:#4a2c18; font-size:10px; letter-spacing:.15em; text-transform:uppercase; position:relative; white-space:nowrap; }
+        .desktop-nav a:after { content:''; position:absolute; left:0; bottom:-8px; height:1px; width:0; background:#b98a4e; transition:width .3s ease; }
+        .desktop-nav a:hover:after { width:100%; }
+        .brand-lockup { display:flex; justify-content:center; width:clamp(150px,19vw,230px); }
+        .brand-logo { width:100%; height:68px; object-fit:contain; mix-blend-mode:multiply; }
+        .header-actions { display:flex; align-items:center; justify-content:flex-end; gap:15px; }
+        .header-cta { display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:999px; background:#4a2c18; color:#fff8ef; font-size:9px; letter-spacing:.14em; text-transform:uppercase; transition:transform .3s,background .3s; }
+        .header-cta:hover { transform:translateY(-3px); background:#8c5832; }
+        .header-cta i { color:#e3c18c; font-size:14px; }
+        .social-top,.footer-social { width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(92,58,33,.28);border-radius:50%;color:#5c3a21;transition:.3s; }
+        .social-top:hover,.footer-social:hover { background:#5c3a21;color:#fff;transform:rotate(-8deg); }
+        .mobile-menu-btn { display:none; color:#4a2c18; }
+        .mobile-menu { padding:12px 24px 22px; background:#faf5ee; border-top:1px solid #e6d7c3; }
+        .mobile-menu a { display:block; padding:12px 0; border-bottom:1px solid #e9ddcf; color:#4a2c18; font-size:11px; letter-spacing:.15em; text-transform:uppercase; }
+        .brand-progress { position:fixed; z-index:100; top:0; left:0; width:0; height:3px; background:linear-gradient(90deg,#8c5832,#d9b879,#f4e3bf); box-shadow:0 0 12px #c89d54; }
+        .hero-visual { perspective:1200px; transform-style:preserve-3d; }
+        .hero-visual:before { content:''; position:absolute; inset:8%; border-radius:50%; background:radial-gradient(circle,rgba(205,164,105,.28),transparent 68%); filter:blur(22px); transform:translateZ(-55px); }
+        .hero-orbit { position:absolute; width:115%; height:38%; border:1px solid rgba(185,138,78,.55); border-radius:50%; transform:rotateX(68deg) rotateZ(-18deg) translateZ(20px); pointer-events:none; animation:orbitTurn 20s linear infinite; }
+        .hero-orbit:after { content:''; position:absolute; width:10px;height:10px; border-radius:50%; background:#c99b55; top:8%;left:15%;box-shadow:0 0 22px rgba(201,155,85,.85); }
+        @keyframes orbitTurn { to { transform:rotateX(68deg) rotateZ(342deg) translateZ(20px); } }
+        .rn-reveal { opacity:0; transform:translate3d(0,42px,0) rotateX(5deg); transform-origin:center bottom; transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+        .rn-reveal.is-visible { opacity:1; transform:translate3d(0,0,0) rotateX(0); }
+        .product-card { transform-style:preserve-3d; perspective:1000px; will-change:transform; }
+        .product-card .product-image-wrap { transform-style:preserve-3d; }
+        .product-card .product-image-wrap img { transform:translateZ(32px); }
+        .product-card:hover { transform:translateY(-7px) rotateX(2deg); }
+        .gallery-tile { transform-style:preserve-3d; perspective:850px; }
+        .gallery-tile img { transform:translateZ(0); transition:transform .8s cubic-bezier(.2,.7,.2,1); object-fit:contain; padding:7px; background:#f7efe5; }
+        .gallery-tile:hover img { transform:scale(1.08) translateZ(16px); }
+        .gallery-note { display:flex; align-items:center; gap:10px; color:#745033; font-size:10px; letter-spacing:.13em; text-transform:uppercase; }
+        .gallery-note-dot { width:7px;height:7px;border-radius:50%;background:#c89d54;box-shadow:0 0 0 5px rgba(200,157,84,.13); }
+        .contact-showcase { background:linear-gradient(180deg,#fdfbf7,#f1e6d8); overflow:hidden; }
+        .contact-panel { display:grid; grid-template-columns:1.05fr .95fr; min-height:550px; background:#fdfbf7; border:1px solid rgba(200,157,84,.4); border-radius:28px; overflow:hidden; box-shadow:0 35px 90px rgba(46,26,12,.10); }
+        .contact-copy { padding:clamp(30px,6vw,78px); display:flex; flex-direction:column; justify-content:center; }
+        .eyebrow { display:inline-flex; align-items:center; gap:10px; color:#9b7041; font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; }
+        .eyebrow>span { width:28px;height:1px;background:#c89d54; }
+        .contact-copy h2 { margin:25px 0 18px; color:#3b2313; font-size:clamp(40px,5vw,64px); line-height:.98; }
+        .contact-copy h2 em { color:#9b7041; }
+        .contact-copy>p { max-width:500px; color:#765e4c; font-size:13px; line-height:1.9; }
+        .contact-links { display:flex; flex-wrap:wrap; align-items:center; gap:22px; margin-top:30px; }
+        .contact-primary { display:inline-flex; align-items:center; gap:11px; padding:15px 20px; border-radius:999px; background:#4a2c18; color:#fff8ef; font-size:10px; letter-spacing:.12em; text-transform:uppercase; transition:.3s; }
+        .contact-primary:hover { transform:translateY(-4px); background:#7d4e2d; box-shadow:0 15px 28px rgba(74,44,24,.2); }
+        .contact-secondary { color:#68442b; font-size:10px; letter-spacing:.14em; text-transform:uppercase; border-bottom:1px solid #c89d54; padding-bottom:6px; }
+        .contact-meta { display:flex; flex-wrap:wrap; gap:28px; padding-top:35px; margin-top:36px; border-top:1px solid #eadfce; }
+        .contact-meta>div { display:flex; gap:11px; align-items:center; color:#8c5832; }
+        .contact-meta i { font-size:21px; }
+        .contact-meta b,.contact-meta small { display:block; }
+        .contact-meta b { font-size:10px; color:#4a2c18; }
+        .contact-meta small { margin-top:4px; font-size:9px; color:#9a8270; }
+        .contact-visual { min-height:450px; display:grid; place-items:center; position:relative; overflow:hidden; background:radial-gradient(circle at 50% 48%,#fffaf1 0,#edddc8 55%,#dfc6a7 100%); perspective:1100px; }
+        .contact-logo-card { position:relative; z-index:2; width:min(72%,380px); aspect-ratio:1; border-radius:50%; overflow:hidden; display:grid;place-items:center; background:#fff; border:10px solid rgba(255,255,255,.68); box-shadow:0 40px 70px rgba(63,36,17,.22),inset 0 0 0 1px rgba(200,157,84,.35); transform:rotateY(-12deg) rotateX(5deg); animation:logoLevitate 7s ease-in-out infinite; }
+        .contact-logo-card img { width:100%; height:100%; object-fit:cover; }
+        .contact-orbit { position:absolute; width:125%;height:42%;border:1px solid rgba(133,85,47,.42);border-radius:50%; transform:rotateX(68deg) rotateZ(-24deg); }
+        .orbit-two { width:105%;height:57%; transform:rotateX(68deg) rotateZ(28deg); border-color:rgba(201,155,85,.55); }
+        .contact-script { position:absolute; z-index:3; bottom:12%; right:7%; color:#805533; font-family:'Alex Brush',cursive; font-size:clamp(30px,4vw,48px); line-height:.9; transform:rotate(-9deg); text-shadow:0 4px 18px rgba(255,255,255,.7); }
+        .contact-seal { position:absolute; z-index:3; top:12%;left:7%;display:flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid rgba(166,124,55,.35);border-radius:30px;background:rgba(255,250,241,.76);color:#775131;font-size:9px;letter-spacing:.13em;text-transform:uppercase;backdrop-filter:blur(8px); }
+        @keyframes logoLevitate { 0%,100%{transform:rotateY(-12deg) rotateX(5deg) translateY(0)} 50%{transform:rotateY(8deg) rotateX(-3deg) translateY(-14px)} }
+        .site-footer { padding:34px 0 18px; background:#26170c; color:#f8eee2; }
+        .footer-main { display:flex;align-items:center;justify-content:space-between;gap:25px;padding-bottom:28px;border-bottom:1px solid rgba(236,215,186,.18); }
+        .footer-brand { display:flex;flex-direction:column;align-items:flex-start;gap:5px; }
+        .footer-brand img { width:150px;height:62px;object-fit:contain;mix-blend-mode:screen;filter:brightness(1.5); }
+        .footer-brand span { color:#c5a77e;font-size:8px;letter-spacing:.2em;text-transform:uppercase; }
+        .footer-links { display:flex;flex-wrap:wrap;gap:clamp(12px,2vw,28px); }
+        .footer-links a { color:#eadac6; font-size:9px; }
+        .footer-social { border-color:rgba(236,215,186,.3);color:#eadac6; }
+        .footer-bottom { display:flex;justify-content:space-between;gap:16px;padding-top:17px;color:rgba(248,238,226,.55);font-size:9px;letter-spacing:.08em; }
+        .product-modal-shell { position:relative; display:grid; grid-template-columns:.92fr 1.08fr; max-width:880px;width:100%;max-height:90vh;overflow:auto;border-radius:25px;border:1px solid rgba(200,157,84,.65);background:#fdfbf7;box-shadow:0 35px 100px rgba(0,0,0,.3); }
+        .modal-image-wrap { min-height:440px;background:#efe3d3; }
+        .modal-image-wrap img { width:100%;height:100%;min-height:440px;object-fit:cover; }
+        .modal-content { padding:clamp(25px,4vw,45px);display:flex;flex-direction:column;justify-content:center; }
+        .modal-content h3 { margin:14px 0;color:#3b2313;font-size:clamp(30px,4vw,42px);line-height:1.02; }
+        .modal-content>p { color:#755e4d;font-size:12px;line-height:1.85; }
+        .modal-tasting { margin-top:22px;padding:17px;background:#f5ecdf;border:1px solid rgba(200,157,84,.35);border-radius:15px; }
+        .modal-tasting span,.modal-price-row small { display:block;color:#9b7041;font-size:9px;letter-spacing:.18em;text-transform:uppercase; }
+        .modal-tasting p { margin-top:7px;color:#684b35;font:italic 17px 'Cormorant Garamond',serif;line-height:1.5; }
+        .modal-price-row { display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:24px;padding-top:20px;border-top:1px solid #eadfce; }
+        .modal-price-row strong { display:block;margin-top:5px;color:#4a2c18;font:600 27px 'Cormorant Garamond',serif; }
+        .modal-done { display:flex;align-items:center;gap:8px;padding:12px 15px;background:#4a2c18;border-radius:999px;color:#fff8ef;font-size:9px;letter-spacing:.1em;text-transform:uppercase; }
+        .modal-close { position:absolute;z-index:4;top:14px;right:14px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(38,23,12,.86);color:#f7e7cf; }
+        .brand-progress + * { scroll-margin-top:100px; }
+        @media (max-width:1050px) { .header-inner{grid-template-columns:auto 1fr auto}.desktop-nav{display:none}.mobile-menu-btn{display:block;grid-column:1}.brand-lockup{grid-column:2;grid-row:1;margin:auto}.header-actions{grid-column:3;grid-row:1}.header-cta{display:none}.brand-logo{height:62px}.contact-panel{grid-template-columns:1fr 1fr} }
+        @media (max-width:700px) { .brand-ribbon{font-size:8px;letter-spacing:.12em;gap:7px;flex-wrap:wrap}.header-inner{min-height:74px;gap:8px}.brand-lockup{width:148px}.brand-logo{height:54px}.social-top{width:34px;height:34px}.contact-panel{grid-template-columns:1fr}.contact-copy{padding:34px 26px}.contact-visual{min-height:390px}.contact-meta{gap:18px}.footer-main{flex-direction:column}.footer-brand{align-items:center}.footer-bottom{flex-direction:column;text-align:center}.product-modal-shell{grid-template-columns:1fr;max-height:88vh}.modal-image-wrap,.modal-image-wrap img{min-height:260px;height:260px}.modal-content{padding:25px}.modal-price-row{align-items:flex-start;flex-direction:column}.modal-done{width:100%;justify-content:center} }
+        @media (prefers-reduced-motion:reduce) { *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rn-reveal{opacity:1;transform:none} }
+
+
+        .brand-values { background:#5c3a21; color:#fbf2e6; }
+        .values-grid { display:grid;grid-template-columns:repeat(3,1fr) 1.15fr;gap:26px;align-items:center; }
+        .values-grid>div { min-height:112px;padding-right:20px;border-right:1px solid rgba(244,225,197,.2); }
+        .value-number { display:block;margin-bottom:12px;color:#d5b77c;font:italic 19px 'Cormorant Garamond',serif; }
+        .values-grid h3 { margin-bottom:6px;color:#fff7ed;font:500 23px 'Cormorant Garamond',serif; }
+        .values-grid p { color:rgba(255,247,237,.7);font-size:10px;line-height:1.7; }
+        .values-cta { display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;border:1px solid rgba(244,225,197,.4);border-radius:999px;color:#f3dcb6;font-size:10px;letter-spacing:.14em;text-transform:uppercase;transition:.3s; }
+        .values-cta:hover { background:#f3dcb6;color:#4a2c18;transform:translateY(-3px); }
+        @media(max-width:850px) { .values-grid{grid-template-columns:1fr 1fr}.values-grid>div{border-right:0;border-bottom:1px solid rgba(244,225,197,.2);padding-bottom:18px}.values-cta{grid-column:span 2} }
+        @media(max-width:520px) { .values-grid{grid-template-columns:1fr}.values-grid>div{min-height:0}.values-cta{grid-column:auto} }
+
+    </style>
+</head>
+<body class="antialiased selection:bg-olive-700 selection:text-cream-50">
+    <div class="brand-progress" id="brandProgress"></div>
+
+    <!-- BRAND RIBBON -->
+    <div class="brand-ribbon">
+        <span>Maison Reine Noisette</span><span class="ribbon-dot">✦</span>
+        <span>Haute Pâtisserie · Pralinés · Douceurs fines</span>
+        <span class="ribbon-dot">✦</span><span>Le goût du détail</span>
+    </div>
+
+    <!-- EDITORIAL NAVIGATION -->
+    <header id="navbar" class="site-header sticky top-0 z-40">
+        <div class="header-inner max-w-7xl mx-auto px-4 sm:px-8">
+            <nav class="desktop-nav" aria-label="Navigation principale">
+                <a href="#accueil">Accueil</a>
+                <a href="#histoire">La Maison</a>
+                <a href="#prix">La Carte</a>
+                <a href="#galerie">Galerie</a>
+                <a href="#sur-mesure">Événements</a>
+            </nav>
+            <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false"><i class="ph ph-list text-2xl"></i></button>
+            <a href="#accueil" class="brand-lockup" aria-label="Reine Noisette, accueil">
+                <img src="reine-noisette/logo.jpg" alt="Logo Reine Noisette" class="brand-logo">
+            </a>
+            <div class="header-actions">
+                <a href="#contact" class="header-cta">Nous découvrir <i class="ph ph-arrow-up-right"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100069572620400" target="_blank" rel="noopener noreferrer" class="social-top" aria-label="Facebook Reine Noisette"><i class="ph-fill ph-facebook-logo"></i></a>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="#accueil" onclick="closeMobileMenu()">Accueil</a>
+            <a href="#histoire" onclick="closeMobileMenu()">La Maison</a>
+            <a href="#prix" onclick="closeMobileMenu()">La Carte</a>
+            <a href="#galerie" onclick="closeMobileMenu()">Galerie</a>
+            <a href="#sur-mesure" onclick="closeMobileMenu()">Événements</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         1. MONUMENTAL HERO SECTION (Editorial Style + Reine Noisette Logo Colors & ZIP Images)
+         ========================================== -->
+    <section id="accueil" class="relative marble-surface botanical-glow pt-6 pb-16 md:py-20 overflow-hidden border-b border-gold-500/30">
+        
+        <!-- Decorative Warm Hazelnut & Gold Ambient Blur -->
+        <div class="pointer-events-none absolute -top-12 -right-12 w-72 h-72 md:w-96 md:h-96 rounded-full bg-gold-500/15 blur-3xl"></div>
+        <div class="pointer-events-none absolute bottom-0 left-1/4 w-96 h-32 bg-olive-700/15 blur-2xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative">
+            
+            <!-- GIANT MONUMENTAL SERIF BACKDROP WORD -->
+            <div class="text-center relative z-0 pt-2 md:pt-4">
+                <div class="inline-flex items-center space-x-2 px-4 py-1 rounded-full bg-olive-800/5 border border-gold-500/40 mb-2">
+                    <i class="ph-fill ph-crown text-gold-600 text-xs"></i>
+                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.32em] text-olive-800 font-semibold">
+                        Maison Reine Noisette • Créations Authentiques
+                    </span>
+                </div>
+                <h1 class="hero-giant-title text-[16.5vw] sm:text-[15vw] lg:text-[180px] tracking-tight uppercase select-none">
+                    NOISETTE
+                </h1>
+            </div>
+
+            <!-- 3-COLUMN HERO FOREGROUND OVERLAPPING THE GIANT TITLE -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end relative z-10 -mt-6 sm:-mt-12 lg:-mt-20">
+                
+                <!-- Left Editorial Column -->
+                <div class="lg:col-span-4 order-2 lg:order-1 space-y-6 pb-4">
+                    <h2 class="font-serif text-3xl sm:text-4xl text-olive-900 leading-[1.15] font-normal">
+                        La gourmandise<br>
+                        élevée au rang<br>
+                        <span class="italic text-gold-600 font-semibold">de grand art.</span>
+                    </h2>
+
+                    <ul class="space-y-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-olive-800/80 border-l-2 border-gold-500 pl-3.5">
+                        <li>Noisettes Torréfiées & Pralinés Purs</li>
+                        <li>Recettes Signature & Savoir-Faire Artisanal</li>
+                        <li>Chic, Finesse & Élégance dans Chaque Détail</li>
+                    </ul>
+
+                    <div class="flex flex-wrap items-center gap-5 pt-2">
+                        <a href="#prix" class="inline-flex items-center space-x-3 bg-olive-800 hover:bg-olive-700 text-cream-50 border border-gold-400/50 text-xs uppercase tracking-[0.16em] px-7 py-4 rounded-full shadow-lg shadow-olive-900/20 transition transform hover:-translate-y-0.5">
+                            <span>Découvrir nos créations</span>
+                            <i class="ph ph-arrow-right text-gold-400 text-sm"></i>
+                        </a>
+                        <a href="#galerie" class="text-xs uppercase tracking-[0.16em] text-olive-800 border-b border-gold-600 pb-1 hover:text-gold-600 transition font-medium">
+                            Explorer la galerie
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Centerpiece Signature Creation Visual from ZIP (reine-noisette/img2.jpg) -->
+                <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center justify-center relative hero-visual" id="heroVisual">
+                     <div class="hero-orbit"></div>
+                    <div class="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[420px] lg:h-[420px] flex items-center justify-center">
+                        <!-- Golden Halo Pedestal -->
+                        <div class="absolute inset-5 rounded-full bg-gradient-to-tr from-cream-200 via-cream-50 to-gold-300/40 shadow-2xl border-2 border-gold-400/60"></div>
+                        
+                        <!-- Main Signature Photo from reine-noisette.zip -->
+                        <img src="reine-noisette/img19.jpg" 
+                             data-rn-img="img19.jpg"
+                             data-rn-title="Création Signature Reine Noisette"
+                             alt="Création Signature Reine Noisette" 
+                             onclick="openLightbox('img19.jpg', 'Création Signature Reine Noisette')"
+                             class="rn-img hero-main-image cursor-pointer relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-[360px] lg:h-[360px] object-cover rounded-full border-4 border-cream-50 gold-ring shadow-[0_28px_55px_-12px_rgba(46,26,12,0.38)] animate-float">
+                        
+                        <!-- Floating Royal Badge -->
+                        <div class="absolute -bottom-3 right-2 sm:right-6 z-20 bg-olive-900/95 text-cream-50 backdrop-blur-md px-5 py-2.5 rounded-full shadow-lg border border-gold-400/50 flex items-center space-x-2.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-gold-400 animate-ping"></span>
+                            <span class="font-serif italic text-sm text-gold-300">Signature • Reine Noisette</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Poetic Calligraphic Annotation + Thumbnail Preview from ZIP -->
+                <div class="lg:col-span-3 order-3 flex flex-col items-start lg:items-end justify-between pb-4 space-y-6">
+                    <div class="font-script text-4xl sm:text-5xl text-olive-700 -rotate-6 transform lg:mr-2 select-none leading-none drop-shadow-xs">
+                        Plus qu'un dessert,<br>
+                        <span class="ml-6 text-gold-600">une couronne...</span>
+                    </div>
+
+                    <!-- Mini Preview Card with reine-noisette/img3.jpg & img4.jpg -->
+                    <div class="bg-cream-50/90 backdrop-blur-sm p-4 rounded-2xl border border-gold-400/40 max-w-xs shadow-md space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="flex -space-x-3 overflow-hidden shrink-0">
+                                <img src="reine-noisette/img10.jpg" data-rn-img="img10.jpg" data-rn-title="Dattes farcies noisette" alt="Photo 3" class="rn-img inline-block h-12 w-12 rounded-full ring-2 ring-cream-50 object-cover cursor-pointer" onclick="openLightbox('img10.jpg', 'Dattes farcies noisette')">
+                                <img src="reine-noisette/img13.jpg" data-rn-img="img13.jpg" data-rn-title="Douceurs à la pistache" alt="Photo 4" class="rn-img inline-block h-12 w-12 rounded-full ring-2 ring-cream-50 object-cover cursor-pointer" onclick="openLightbox('img13.jpg', 'Douceurs à la pistache')">
+                                <img src="reine-noisette/img20.jpg" data-rn-img="img20.jpg" data-rn-title="Assortiment gourmand" alt="Photo 5" class="rn-img inline-block h-12 w-12 rounded-full ring-2 ring-cream-50 object-cover cursor-pointer" onclick="openLightbox('img20.jpg', 'Assortiment gourmand')">
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-[0.18em] text-gold-600 font-bold">100% Artisanal</p>
+                                <p class="font-serif text-base text-olive-900 leading-snug">Découvrez nos créations en images</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         2. SECTION "NOTRE HISTOIRE" (Exact 3-Block Split with ZIP Photos & Hazelnut/Gold Colors)
+         ========================================== -->
+    <section id="histoire" class="bg-cream-100 border-b border-gold-500/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[540px]">
+                
+                <!-- Left Cream Narrative Block -->
+                <div class="lg:col-span-5 bg-cream-50 p-8 sm:p-12 lg:p-16 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gold-500/25">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-8 h-[1px] bg-gold-500"></span>
+                            <span class="text-[10px] uppercase tracking-[0.25em] text-gold-600 font-semibold block">
+                                L'Histoire de Reine Noisette
+                            </span>
+                        </div>
+                        <h2 class="font-serif text-4xl sm:text-5xl text-olive-900 font-normal leading-[1.12]">
+                            Inspirés par la<br>
+                            <span class="italic text-olive-700">reine des saveurs</span>
+                        </h2>
+                        <p class="text-sm text-espresso/80 leading-relaxed font-light">
+                            Chez <strong class="font-semibold text-olive-800">Reine Noisette</strong>, chaque création raconte une histoire d'amour entre le savoir-faire artisanal tunisien et l'élégance de la haute pâtisserie fine.
+                        </p>
+                        <p class="text-sm text-espresso/80 leading-relaxed font-light">
+                            Du choix minutieux des noisettes, pistaches et amandes jusqu'à leur torréfaction dorée à cœur, nous façonnons à la main des douceurs pralinées, des gâteaux signatures et des coffrets raffinés aux couleurs chaudes et dorées de notre emblème.
+                        </p>
+
+                        <!-- Miniature Logo & Signature Showcase -->
+                        <div class="flex items-center space-x-4 pt-2 bg-cream-100 p-3.5 rounded-2xl border border-gold-400/30">
+                            <img src="reine-noisette/logo.jpg" data-rn-img="img9.jpg" data-rn-title="Logo officiel Reine Noisette" alt="Emblème Reine Noisette" onclick="openLightbox('img9.jpg', 'Logo officiel Reine Noisette')" class="rn-img w-14 h-14 rounded-xl object-cover border border-gold-500 cursor-pointer shrink-0">
+                            <div>
+                                <p class="font-serif text-lg text-olive-900 font-semibold">La Signature Reine Noisette</p>
+                                <p class="text-xs text-espresso/70">Chaque visuel révèle un détail de notre univers.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-8 mt-8 border-t border-cream-300 flex items-center justify-between">
+                        <span class="text-[11px] uppercase tracking-[0.2em] text-olive-700">Fait Maison avec Passion</span>
+                        <a href="https://www.facebook.com/profile.php?id=100069572620400" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.18em] text-olive-800 hover:text-gold-600 font-semibold group">
+                            <span>Notre Page Facebook</span>
+                            <i class="ph ph-arrow-right group-hover:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Center Macro Artistic Texture Photo from ZIP (reine-noisette/img6.jpg) -->
+                <div class="lg:col-span-4 relative overflow-hidden min-h-[360px] group cursor-pointer" onclick="openLightbox('img7.jpg', 'Le geste artisanal — Reine Noisette')">
+                    <img src="reine-noisette/img7.jpg" 
+                         data-rn-img="img7.jpg"
+                         data-rn-title="Le geste artisanal Reine Noisette"
+                         alt="Détail Pâtisserie Reine Noisette" 
+                         class="rn-img w-full h-full object-cover transform group-hover:scale-105 transition duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-olive-900/75 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 text-cream-50">
+                        <p class="font-script text-3xl text-gold-400">Finesse & Gourmandise</p>
+                        <p class="text-xs tracking-[0.18em] uppercase opacity-95">Noisettes torréfiées, praliné onctueux & touches dorées</p>
+                    </div>
+                </div>
+
+                <!-- Right Deep Roasted Hazelnut & Gold Architectural Block -->
+                <div class="lg:col-span-3 bg-olive-800 text-cream-100 p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden">
+                    <div class="pointer-events-none absolute -right-10 -bottom-10 w-48 h-48 rounded-full border border-gold-400/20"></div>
+                    
+                    <div class="space-y-2">
+                        <p class="text-xs uppercase tracking-[0.24em] text-gold-300 leading-relaxed font-medium">
+                            L'EXCELLENCE<br>
+                            DANS CHAQUE<br>
+                            CRÉATION
+                        </p>
+                    </div>
+
+                    <!-- Vertical Gold Line like Reference -->
+                    <div class="my-6 pl-2">
+                        <div class="w-[1px] h-24 bg-gold-400/50"></div>
+                    </div>
+
+                    <!-- Secondary Preview Image from ZIP (img7.jpg) -->
+                    <div class="rounded-2xl overflow-hidden border border-gold-400/40 mb-4 cursor-pointer" onclick="openLightbox('img18.jpg', 'Douceurs artisanales Reine Noisette')">
+                        <img src="reine-noisette/img18.jpg" data-rn-img="img18.jpg" data-rn-title="Douceurs artisanales" alt="Création Reine Noisette" class="rn-img w-full h-28 object-cover hover:scale-105 transition duration-500">
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2.5 text-gold-400">
+                            <i class="ph-fill ph-crown text-xl"></i>
+                            <span class="text-[11px] uppercase tracking-[0.22em] font-semibold">Qualité Royale</span>
+                        </div>
+                        <p class="text-xs text-cream-200/85 font-light leading-relaxed">
+                            Ingrédients nobles, fruits secs de premier choix et dressage haute couture.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         3. SECTION "LISTE DES PRIX & COLLECTION SIGNATURE" (Using ZIP Images img4 to img15)
+         ========================================== -->
+    <section id="prix" class="py-20 sm:py-24 bg-cream-50 border-b border-gold-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <!-- Section Header Row -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <span class="text-[11px] uppercase tracking-[0.25em] text-gold-600 font-bold">Collection Signature</span>
+                        <span class="w-16 h-[1px] bg-gold-500"></span>
+                    </div>
+                    <h2 class="font-serif text-4xl sm:text-5xl text-olive-900 font-normal">
+                        La carte des créations
+                    </h2>
+                </div>
+
+                <!-- Format / Portion Multiplier Selector -->
+                <div class="bg-cream-200/80 p-1.5 rounded-full inline-flex items-center border border-gold-500/40 self-start md:self-auto">
+                    <span class="text-[10px] uppercase tracking-[0.18em] text-olive-800 px-3 hidden sm:inline font-medium">Format :</span>
+                    <button onclick="setPortionSize('6p')" id="sizeBtn-6p" class="portion-btn bg-olive-800 text-gold-300 text-xs px-4 py-2 rounded-full tracking-wider font-medium transition shadow-sm">
+                        Standard / 6-8 pers
+                    </button>
+                    <button onclick="setPortionSize('10p')" id="sizeBtn-10p" class="portion-btn text-olive-800/80 hover:text-olive-900 text-xs px-4 py-2 rounded-full tracking-wider font-medium transition">
+                        Royal / 10-12 pers (ou 500g)
+                    </button>
+                    <button onclick="setPortionSize('indiv')" id="sizeBtn-indiv" class="portion-btn text-olive-800/80 hover:text-olive-900 text-xs px-4 py-2 rounded-full tracking-wider font-medium transition">
+                        Coffret / 1kg
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Filter Pills & Search -->
+            <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-12 pb-6 border-b border-cream-300">
+                <div class="flex flex-wrap items-center gap-2" id="categoryTabs">
+                    <button onclick="filterCategory('all')" data-cat="all" class="cat-tab active bg-olive-800 text-gold-300 text-xs uppercase tracking-[0.16em] px-5 py-2.5 rounded-full transition border border-gold-500/40">
+                        Tout Voir (12)
+                    </button>
+                    <button onclick="filterCategory('entremets')" data-cat="entremets" class="cat-tab bg-cream-100 hover:bg-cream-200 text-olive-800 text-xs uppercase tracking-[0.16em] px-5 py-2.5 rounded-full border border-cream-300 transition">
+                        Gâteaux & Entremets
+                    </button>
+                    <button onclick="filterCategory('pralines')" data-cat="pralines" class="cat-tab bg-cream-100 hover:bg-cream-200 text-olive-800 text-xs uppercase tracking-[0.16em] px-5 py-2.5 rounded-full border border-cream-300 transition">
+                        Pralinés & Tartinables
+                    </button>
+                    <button onclick="filterCategory('tartes')" data-cat="tartes" class="cat-tab bg-cream-100 hover:bg-cream-200 text-olive-800 text-xs uppercase tracking-[0.16em] px-5 py-2.5 rounded-full border border-cream-300 transition">
+                        Douceurs & Tartes Fines
+                    </button>
+                    <button onclick="filterCategory('coffrets')" data-cat="coffrets" class="cat-tab bg-cream-100 hover:bg-cream-200 text-olive-800 text-xs uppercase tracking-[0.16em] px-5 py-2.5 rounded-full border border-cream-300 transition">
+                        Coffrets & Plateaux Royaux
+                    </button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative w-full lg:w-72">
+                    <i class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-olive-700/60"></i>
+                    <input type="text" id="searchInput" oninput="renderProducts()" placeholder="Rechercher une douceur..." 
+                           class="w-full pl-10 pr-4 py-2.5 bg-white border border-gold-500/40 rounded-full text-xs text-espresso focus:outline-none focus:border-olive-700 transition">
+                </div>
+            </div>
+
+            <!-- 3-COLUMN LUXURY SHOWCASE GRID (Mapped to reine-noisette/img4.jpg through img15.jpg) -->
+            <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- COMPLETE STRUCTURED PRICE TABLE (LISTE DES PRIX DÉTAILLÉE) -->
+            <div class="mt-20 bg-cream-100 rounded-3xl p-8 sm:p-12 border border-gold-500/40 shadow-md">
+                <div class="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-gold-500/30 gap-4">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-gold-600 font-bold block mb-1">Une collection de douceurs</span>
+                        <h3 class="font-serif text-3xl text-olive-900">Les créations Reine Noisette</h3>
+                    </div>
+                    <p class="text-xs text-espresso/75 max-w-md">
+                        Découvrez notre sélection de créations artisanales, de pralinés et de douceurs fines. Les tarifs présentés sont indicatifs et peuvent évoluer selon les formats.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 pt-8">
+                    
+                    <!-- Left Price Column: Pâtisseries, Entremets & Gâteaux -->
+                    <div class="space-y-5">
+                        <h4 class="font-serif text-xl text-olive-800 italic border-b border-gold-500/30 pb-2 flex items-center space-x-2">
+                            <i class="ph-fill ph-crown text-gold-500"></i>
+                            <span>I. Entremets, Gâteaux & Tartes Signature</span>
+                        </h4>
+                        <div class="space-y-3.5 text-sm">
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Le Royal Reine Noisette (Signature)</span>
+                                    <span class="block text-xs text-espresso/65">Dacquoise noisette, croustillant praliné pur, mousse légère gianduja</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">75 DT <small class="text-[10px] font-sans text-gold-600">/ 6-8p</small></span>
+                            </div>
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Symphonie Noisette & Pistache Impériale</span>
+                                    <span class="block text-xs text-espresso/65">Alliance onctueuse pistache torréfiée & cœur coulant noisette</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">82 DT <small class="text-[10px] font-sans text-gold-600">/ 6-8p</small></span>
+                            </div>
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Couronne Paris-Tunis au Praliné</span>
+                                    <span class="block text-xs text-espresso/65">Pâte à choux craquelin doré, mousseline pralinée & noisettes entières</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">68 DT <small class="text-[10px] font-sans text-gold-600">/ 6-8p</small></span>
+                            </div>
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Tarte Haute Couture Infini Noisette</span>
+                                    <span class="block text-xs text-espresso/65">Sablé croquant, praliné grain maison, ganache montée dorée</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">64 DT <small class="text-[10px] font-sans text-gold-600">/ 6-8p</small></span>
+                            </div>
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Entremet Velours Chocolat & Or</span>
+                                    <span class="block text-xs text-espresso/65">Chocolat noir intense, feuillantine noisette & éclats torréfiés</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">72 DT <small class="text-[10px] font-sans text-gold-600">/ 6-8p</small></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Price Column: Pralinés, Coffrets & Pâtisseries Fines -->
+                    <div class="space-y-5">
+                        <h4 class="font-serif text-xl text-olive-800 italic border-b border-gold-500/30 pb-2 flex items-center space-x-2">
+                            <i class="ph-fill ph-sparkle text-gold-500"></i>
+                            <span>II. Pralinés, Coffrets Prestige & Douceurs au Kilo</span>
+                        </h4>
+                        <div class="space-y-3.5 text-sm">
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Pâte à Tartiner & Praliné Pur "Reine Noisette"</span>
+                                    <span class="block text-xs text-espresso/65">100% naturel, riche en noisettes torréfiées (Pot 250g / 500g)</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">32 DT <small class="text-[10px] font-sans text-gold-600">/ 250g</small></span>
+                            </div>
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Crème de Pistache & Gianduja Royal</span>
+                                    <span class="block text-xs text-espresso/65">Texture veloutée artisanale aux éclats croquants</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">42 DT <small class="text-[10px] font-sans text-gold-600">/ 250g</small></span>
+                            </div>
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Coffret Prestige "Écrin Reine Noisette"</span>
+                                    <span class="block text-xs text-espresso/65">Assortiment de nos meilleures bouchées pralinées & rochers</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">65 DT <small class="text-[10px] font-sans text-gold-600">/ Coffret</small></span>
+                            </div>
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Plateau Royal Pâtisseries Fines & Noisette (1 kg)</span>
+                                    <span class="block text-xs text-espresso/65">Sélection chic noisette, pistache, amande pour vos réceptions</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">95 DT <small class="text-[10px] font-sans text-gold-600">/ 1 kg</small></span>
+                            </div>
+                            <div class="flex justify-between items-baseline border-b border-dashed border-cream-300 pb-2">
+                                <div>
+                                    <span class="font-medium text-olive-900">Gâteau d'Événement / Fiançailles & Mariage</span>
+                                    <span class="block text-xs text-espresso/65">Création sur-mesure personnalisée selon votre thème</span>
+                                </div>
+                                <span class="font-serif font-bold text-base text-olive-800 whitespace-nowrap ml-4">Sur demande <small class="text-[10px] font-sans text-gold-600">(selon création)</small></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. FULL-BLEED SIGNATURE BANNER (With ZIP Photos img16 & img17)
+         ========================================== -->
+    <section id="saison" class="relative py-20 sm:py-28 bg-olive-900 text-cream-50 overflow-hidden border-b border-gold-500/30">
+        <!-- Background Image from ZIP (reine-noisette/img16.jpg) -->
+        <div class="absolute inset-0 opacity-35">
+            <img src="reine-noisette/img8.jpg" 
+                 data-rn-img="img8.jpg"
+                 data-rn-title="Collection Royale Reine Noisette"
+                 alt="Collection Reine Noisette" class="rn-img w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-olive-900 via-olive-900/85 to-olive-800/50"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Poetic Headline -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-[10px] uppercase tracking-[0.28em] text-gold-400 block font-semibold">
+                        Savoir-Faire & Torréfaction
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-6xl uppercase tracking-wide leading-[1.05] text-cream-50 font-normal">
+                        L'OR BRUN<br>
+                        DANS CHAQUE<br>
+                        <span class="text-gold-400">BOUCHÉE</span>
+                    </h2>
+                    <p class="text-sm text-cream-200/90 font-light leading-relaxed max-w-md">
+                        La chaleur ambrée de la noisette torréfiée, l'éclat doré du praliné artisanal et la finesse d'un dressage pensé comme un bijou.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-4">
+                        <a href="#galerie" class="inline-flex items-center space-x-3 bg-gold-500 hover:bg-gold-400 text-olive-900 font-semibold text-xs uppercase tracking-[0.18em] px-7 py-4 rounded-full transition duration-300 shadow-lg">
+                            <span>Explorer la galerie</span>
+                            <i class="ph ph-images"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Center Script Calligraphic Overlay -->
+                <div class="lg:col-span-3 flex justify-center">
+                    <div class="font-script text-5xl sm:text-6xl text-gold-300 -rotate-12 select-none text-center drop-shadow-md">
+                        Reine<br>Noisette
+                    </div>
+                </div>
+
+                <!-- Right Cake on Stand from ZIP (reine-noisette/img17.jpg) -->
+                <div class="lg:col-span-4 flex justify-center">
+                    <div class="relative group cursor-pointer" onclick="openLightbox('img10.jpg', 'Pièce Maîtresse Reine Noisette')">
+                        <div class="absolute -inset-3 rounded-3xl bg-gold-500/25 blur-xl group-hover:bg-gold-500/40 transition"></div>
+                        <img src="reine-noisette/img10.jpg" 
+                             data-rn-img="img10.jpg"
+                             data-rn-title="Pièce Maîtresse Reine Noisette"
+                             alt="Création Reine Noisette" 
+                             class="rn-img relative w-72 h-72 sm:w-80 sm:h-80 object-cover rounded-2xl border-2 border-gold-400/60 shadow-2xl">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5. GALERIE COMPLÈTE DU FICHIER ZIP (img1.jpg à img45.jpg)
+         ========================================== -->
+    <section id="galerie" class="py-20 sm:py-24 bg-cream-100 border-b border-gold-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                    <div class="flex items-center space-x-3 mb-2">
+                        <i class="ph-fill ph-camera text-gold-600 text-lg"></i>
+                        <span class="text-[11px] uppercase tracking-[0.25em] text-gold-600 font-bold">Lookbook • Maison Reine Noisette</span>
+                    </div>
+                    <h2 class="font-serif text-4xl sm:text-5xl text-olive-900 font-normal">
+                        Galerie de nos Réalisations
+                    </h2>
+                    <p class="text-xs text-espresso/75 mt-2 max-w-xl">
+                        Un aperçu généreux de l’univers Reine Noisette : textures, finitions, créations signatures et instants gourmands. Cliquez sur chaque visuel pour le découvrir en grand format.
+                    </p>
+                </div>
+
+                <div class="gallery-note"><span class="gallery-note-dot"></span><span>45 photos originales · Cliquez pour agrandir</span></div>
+            </div>
+
+            <!-- Galerie complète : les 45 photos originales du ZIP -->
+            <div id="zipGalleryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         6. SECTION "VOS HISTOIRES DANS NOS DESSERTS" (Using ZIP Images img18 & img19)
+         ========================================== -->
+    <section id="sur-mesure" class="py-20 sm:py-24 bg-cream-50 border-b border-gold-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Column: Event / Celebration Photo from ZIP (reine-noisette/img18.jpg) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="grid grid-cols-12 items-end gap-4">
+                        <div class="col-span-4 pb-6">
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-olive-800/80 leading-relaxed border-l-2 border-gold-500 pl-3 font-medium">
+                                VOS ÉVÉNEMENTS PRÉCIEUX MÉRITENT LA COURONNE REINE NOISETTE
+                            </p>
+                        </div>
+                        <div class="col-span-8">
+                            <div class="overflow-hidden rounded-2xl shadow-xl border-2 border-gold-400/50 cursor-pointer" onclick="openLightbox('img5.jpg', 'Événements & Célébrations Reine Noisette')">
+                                <img src="reine-noisette/img5.jpg" 
+                                     data-rn-img="img5.jpg"
+                                     data-rn-title="Décoration événementielle Reine Noisette"
+                                     alt="Gâteau d'Événement Reine Noisette" 
+                                     class="rn-img w-full h-80 sm:h-96 object-cover hover:scale-105 transition duration-700">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Column: Editorial Narrative & CTA -->
+                <div class="lg:col-span-4 space-y-6 px-2">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-gold-600 font-bold block">
+                        Célébrations, Coffrets & Sur-Mesure
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-5xl text-olive-900 font-normal leading-[1.12]">
+                        Vos moments précieux<br>
+                        <span class="italic text-olive-700">en version gourmande</span>
+                    </h2>
+                    <p class="text-sm text-espresso/80 leading-relaxed font-light">
+                        Mariages, fiançailles, anniversaires, fêtes de réussite ou coffrets cadeaux d'exception : Reine Noisette sublime vos tables avec des créations chics, fines et gourmandes.
+                    </p>
+                    <div class="pt-2">
+                        <a href="#contact" class="inline-flex items-center space-x-3 bg-olive-800 hover:bg-olive-700 text-gold-300 border border-gold-400/40 text-xs uppercase tracking-[0.16em] px-7 py-4 rounded-full shadow-md transition">
+                            <span>Découvrir le sur-mesure</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Finishing Touch Detail Card from ZIP (reine-noisette/img19.jpg) -->
+                <div class="lg:col-span-3 space-y-4">
+                    <div class="overflow-hidden rounded-2xl border-2 border-gold-400/40 shadow-md cursor-pointer" onclick="openLightbox('img21.jpg', 'Coffret gourmand Reine Noisette')">
+                        <img src="reine-noisette/img21.jpg" 
+                             data-rn-img="img21.jpg"
+                             data-rn-title="Coffret gourmand"
+                             alt="Geste Artisanal Reine Noisette" 
+                             class="rn-img w-full h-48 object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="text-[10px] uppercase tracking-[0.18em] text-olive-800 space-y-1 leading-relaxed pt-1">
+                        <p class="font-bold text-gold-600">Design Chic & Personnalisé</p>
+                        <p>Goût Prémium & Noisettes Torréfiées</p>
+                        <p>Finition Artisanale Soignée</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         6. OLIVE GREEN STATS & PROMISE BAR (Strictly modeled on Reference bottom bar)
+         ========================================== -->
+    <section class="brand-values py-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="values-grid">
+                <div><span class="value-number">01</span><h3>Le geste artisanal</h3><p>Savoir-faire, patience et sens du détail.</p></div>
+                <div><span class="value-number">02</span><h3>Les matières nobles</h3><p>Noisette, pistache, amande et chocolat.</p></div>
+                <div><span class="value-number">03</span><h3>La signature maison</h3><p>Des créations imaginées pour les beaux instants.</p></div>
+                <a href="#histoire" class="values-cta"><span>Découvrir la Maison</span><i class="ph ph-arrow-up-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         7. SECTION "CONTACT & COMMANDES"
+         ========================================== -->
+    <section id="contact" class="contact-showcase py-20 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="contact-panel">
+                <div class="contact-copy">
+                    <span class="eyebrow"><span></span> Restons en contact</span>
+                    <h2 class="font-serif">Un univers de douceur<br><em>à découvrir.</em></h2>
+                    <p>Suivez les nouveautés de la Maison Reine Noisette, découvrez les dernières créations et échangez directement avec notre équipe sur nos réseaux.</p>
+                    <div class="contact-links">
+                        <a href="https://www.facebook.com/profile.php?id=100069572620400" target="_blank" rel="noopener noreferrer" class="contact-primary"><i class="ph-fill ph-facebook-logo"></i> Visiter notre page Facebook <i class="ph ph-arrow-up-right"></i></a>
+                        <a href="#galerie" class="contact-secondary">Revoir nos créations <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                    <div class="contact-meta">
+                        <div><i class="ph ph-map-pin"></i><span><b>Maison artisanale</b><small>Grand Tunis · Tunisie</small></span></div>
+                        <div><i class="ph ph-clock"></i><span><b>Créations sur demande</b><small>Suivez nos actualités sur Facebook</small></span></div>
+                    </div>
+                </div>
+                <div class="contact-visual">
+                    <div class="contact-orbit orbit-one"></div><div class="contact-orbit orbit-two"></div>
+                    <div class="contact-logo-card"><img src="reine-noisette/logo.jpg" alt="Reine Noisette" loading="lazy"></div>
+                    <span class="contact-script">Une signature<br>gourmande.</span>
+                    <span class="contact-seal"><i class="ph-fill ph-sparkle"></i> Depuis la passion</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="footer-main">
+                <a href="#accueil" class="footer-brand"><img src="reine-noisette/logo.jpg" alt="Logo Reine Noisette"><span>Haute Pâtisserie · Tunisie</span></a>
+                <div class="footer-links"><a href="#accueil">Accueil</a><a href="#histoire">La Maison</a><a href="#prix">La Carte</a><a href="#galerie">Galerie</a><a href="#contact">Contact</a></div>
+                <a class="footer-social" href="https://www.facebook.com/profile.php?id=100069572620400" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+            </div>
+            <div class="footer-bottom"><span>© <span id="currentYear"></span> Reine Noisette. Tous droits réservés.</span><span>Le goût a du sens · L’art du détail</span></div>
+        </div>
+    </footer>
+
+    <!-- PRODUCT DETAIL MODAL — SHOWCASE ONLY -->
+    <div id="productModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-olive-900/80 backdrop-blur-md p-4" onclick="if(event.target===this)closeProductModal()">
+        <div class="product-modal-shell">
+            <button onclick="closeProductModal()" class="modal-close" aria-label="Fermer"><i class="ph ph-x"></i></button>
+            <div class="modal-image-wrap"><img id="modalImg" src="" alt=""></div>
+            <div class="modal-content">
+                <span id="modalSubtitle" class="eyebrow"></span>
+                <h3 id="modalTitle" class="font-serif"></h3>
+                <p id="modalDesc"></p>
+                <div class="modal-tasting"><span>Composition & notes</span><p id="modalNotes"></p></div>
+                <div class="modal-price-row"><div><small>À partir de</small><strong id="modalPrice"></strong></div><button onclick="closeProductModal()" class="modal-done">Continuer la visite <i class="ph ph-arrow-right"></i></button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL FOR FULL GALLERY PHOTOS -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-olive-900/90 backdrop-blur-md p-4" onclick="closeLightbox(event)">
+        <div class="max-w-3xl w-full bg-cream-50 rounded-3xl overflow-hidden border-2 border-gold-400/60 shadow-2xl relative" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between px-6 py-4 bg-olive-900 text-cream-50 border-b border-gold-500/30">
+                <div class="flex items-center space-x-2">
+                    <i class="ph-fill ph-crown text-gold-400"></i>
+                    <span id="lightboxCaption" class="font-serif text-xl text-gold-300">Reine Noisette</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button onclick="closeLightbox()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
+                        <i class="ph ph-x"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="bg-olive-900/95 flex items-center justify-center max-h-[75vh] overflow-hidden">
+                <img id="lightboxImg" src="" alt="Reine Noisette" class="max-h-[72vh] w-auto object-contain">
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION TOAST -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 hidden bg-olive-800 text-cream-50 px-6 py-4 rounded-2xl shadow-xl border border-gold-400/40 items-center space-x-3">
+        <i class="ph ph-sparkle text-gold-400 text-xl"></i>
+        <span id="toastMessage" class="text-xs tracking-wider"></span>
+    </div>
+
+    <!-- ==========================================
+         JAVASCRIPT LOGIC (45 PHOTOS ORIGINALES, GALERIE, FILTRES, ANIMATIONS)
+         ========================================== -->
+    <script>
+        const RN_LOGO_DATA = 'reine-noisette/logo.jpg';
+        const loadedZipImages = {};
+        let currentCategory = 'all';
+        let currentPortion = '6p';
+        const portionLabels = { '6p':'Format Standard (6–8 pers.)', '10p':'Format Royal (10–12 pers.)', 'indiv':'Format Coffret / 1 kg' };
+
+        const productsData = [
+            {
+                id: 'royal-reine-noisette',
+                imgFile: 'img19.jpg',
+                title: 'Le Royal Reine Noisette',
+                subtitle: 'ENTREMET SIGNATURE',
+                category: 'entremets',
+                prices: { '6p': 75, '10p': 105, 'indiv': 115 },
+                image: 'reine-noisette/img19.jpg',
+                desc: 'Notre création emblématique aux noisettes torréfiées à cœur, croustillant praliné maison et mousse onctueuse gianduja.',
+                notes: 'Dacquoise noisette, feuillantine pralinée 70%, ganache montée et éclats de noisettes dorées.'
+            },
+            {
+                id: 'symphonie-pistache-noisette',
+                imgFile: 'img43.jpg',
+                title: 'Symphonie Noisette & Pistache',
+                subtitle: 'CRÉATION D’AUTEUR',
+                category: 'entremets',
+                prices: { '6p': 82, '10p': 115, 'indiv': 125 },
+                image: 'reine-noisette/img43.jpg',
+                desc: 'Mariage raffiné entre la douceur d’une crème de pistache pure et le caractère intense du praliné noisette.',
+                notes: 'Biscuit moelleux, insert coulant praliné noisette-pistache, finition velours et fruits secs.'
+            },
+            {
+                id: 'couronne-paris-tunis',
+                imgFile: 'img33.jpg',
+                title: 'Couronne Princière Pralinée',
+                subtitle: 'GRAND CLASSIQUE REVISITÉ',
+                category: 'tartes',
+                prices: { '6p': 68, '10p': 94, 'indiv': 98 },
+                image: 'reine-noisette/img33.jpg',
+                desc: 'Couronne croustillante garnie d’une crème mousseline aérienne au praliné à l’ancienne et cœur coulant.',
+                notes: 'Praliné pur broyé maison, noisettes caramélisées à la fleur de sel.'
+            },
+            {
+                id: 'ecrin-rochers-royaux',
+                imgFile: 'img21.jpg',
+                title: 'Écrin Prestige Reine Noisette',
+                subtitle: 'COFFRET CADEAU CHIC',
+                category: 'coffrets',
+                prices: { '6p': 65, '10p': 95, 'indiv': 120 },
+                image: 'reine-noisette/img21.jpg',
+                desc: 'Un coffret luxueux réunissant nos meilleures bouchées pralinées, rochers aux éclats de noisettes et douceurs fines.',
+                notes: 'Enrobage chocolat grand cru, cœur gianduja fondant et noisettes entières.'
+            },
+            {
+                id: 'elixir-praline-pur',
+                imgFile: 'img22.jpg',
+                title: 'L’Élixir Praliné & Pâte à Tartiner',
+                subtitle: 'POT GOURMAND ARTISANAL',
+                category: 'pralines',
+                prices: { '6p': 32, '10p': 60, 'indiv': 110 },
+                image: 'reine-noisette/img22.jpg',
+                desc: 'Préparation artisanale ultra-gourmande riche en noisettes fraîchement torréfiées, sans huile de palme.',
+                notes: 'Texture soyeuse et éclats croquants. Disponible en 250g, 500g et 1kg.'
+            },
+            {
+                id: 'tarte-infini-noisette',
+                imgFile: 'img42.jpg',
+                title: 'Tarte Haute Couture Noisette & Or',
+                subtitle: 'TARTE FINE SIGNATURE',
+                category: 'tartes',
+                prices: { '6p': 64, '10p': 88, 'indiv': 95 },
+                image: 'reine-noisette/img42.jpg',
+                desc: 'Pâte sucrée croustillante aux amandes et noisettes, garnie d’un crémeux gianduja et d’un praliné grain.',
+                notes: 'Décorée de noisettes torréfiées entières et touches dorées.'
+            },
+            {
+                id: 'plateau-royal-fetes',
+                imgFile: 'img30.jpg',
+                title: 'Plateau Royal de Cérémonie',
+                subtitle: 'ASSORTIMENT PRESTIGE',
+                category: 'coffrets',
+                prices: { '6p': 70, '10p': 95, 'indiv': 135 },
+                image: 'reine-noisette/img30.jpg',
+                desc: 'Assortiment raffiné de pâtisseries fines à base de noisette, pistache et amande pour sublimer vos réceptions.',
+                notes: 'Dressage élégant prêt à servir pour vos invités et événements.'
+            },
+            {
+                id: 'velours-chocolat-noisette',
+                imgFile: 'img38.jpg',
+                title: 'Dôme Velours Cacao & Noisette',
+                subtitle: 'INTENSITÉ CHOCOLAT',
+                category: 'entremets',
+                prices: { '6p': 72, '10p': 98, 'indiv': 110 },
+                image: 'reine-noisette/img38.jpg',
+                desc: 'Alliance intense du chocolat noir et de la noisette torréfiée dans un entremet au glaçage miroir et velours.',
+                notes: 'Biscuit sans farine au cacao, croustillant praliné et mousse chocolat noir.'
+            },
+            {
+                id: 'douceur-pistache-noisette',
+                imgFile: 'img40.jpg',
+                title: 'Création Princière Pistache & Pralin',
+                subtitle: 'FINESSE ARTISANALE',
+                category: 'pralines',
+                prices: { '6p': 42, '10p': 78, 'indiv': 140 },
+                image: 'reine-noisette/img40.jpg',
+                desc: 'Toute la noblesse de la pistache et de la noisette réunies dans une création fondante et généreuse.',
+                notes: 'Fruits secs sélectionnés, torréfaction lente et broyage traditionnel.'
+            }
+        ];
+
+        function getRnImageSrc(imgFile) {
+            if (loadedZipImages[imgFile]) return loadedZipImages[imgFile];
+            return `reine-noisette/${imgFile}`;
+        }
+
+        function createRoyalPlaceholderSVG(imgName, label) {
+            const n = Number((imgName.match(/\d+/) || ['1'])[0]);
+            const palettes = [ ['#f7ead8','#8c5832','#c89d54'], ['#f4e5d3','#5c3a21','#d5b77c'], ['#fff5e8','#9b7041','#b9824d'], ['#eee0ce','#4a2c18','#d7b46e'] ];
+            const p = palettes[(n-1)%palettes.length];
+            const title = String(label || 'Création Reine Noisette').replace(/[<>&]/g,' ').slice(0,34);
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><defs><radialGradient id="bg"><stop stop-color="${p[0]}"/><stop offset="1" stop-color="#d8c1a5"/></radialGradient><linearGradient id="cake" x2="1" y2="1"><stop stop-color="${p[2]}"/><stop offset="1" stop-color="${p[1]}"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="20"/></filter></defs><rect width="600" height="600" fill="url(#bg)"/><circle cx="300" cy="270" r="218" fill="none" stroke="${p[2]}" stroke-opacity=".45" stroke-width="2"/><ellipse cx="300" cy="430" rx="155" ry="24" fill="#3d2414" opacity=".2" filter="url(#shadow)"/><path d="M160 290 Q170 230 225 220 L375 220 Q430 235 440 290 L420 390 Q300 430 180 390Z" fill="url(#cake)"/><ellipse cx="300" cy="287" rx="140" ry="65" fill="${p[1]}"/><path d="M195 265 Q230 180 300 218 Q370 170 405 265 Q350 305 300 270 Q250 310 195 265" fill="${p[0]}" opacity=".86"/><g fill="${p[2]}"><circle cx="245" cy="235" r="19"/><circle cx="300" cy="215" r="21"/><circle cx="355" cy="238" r="17"/><path d="M300 155l15 28 31 4-23 21 6 30-29-15-29 15 6-30-23-21 31-4z"/></g><text x="300" y="500" text-anchor="middle" fill="${p[1]}" font-family="Georgia,serif" font-size="27">${title}</text><text x="300" y="530" text-anchor="middle" fill="#8c5832" font-family="Arial,sans-serif" font-size="11" letter-spacing="4">REINE NOISETTE</text></svg>`;
+            return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+        }
+
+        function bindImageFallbacks() {
+            document.querySelectorAll('img.rn-img').forEach(img => {
+                const file = img.getAttribute('data-rn-img') || 'img2.jpg';
+                const title = img.getAttribute('data-rn-title') || 'Création Reine Noisette';
+                const resolved = getRnImageSrc(file);
+                if (img.src !== resolved && !img.src.startsWith('data:image')) img.src = resolved;
+                img.onerror = function() {
+                    this.onerror = null;
+                    this.src = createRoyalPlaceholderSVG(file, title);
+                    this.classList.add('is-image-placeholder');
+                };
+            });
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            if (!grid) return;
+            const search = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+            const filtered = productsData.filter(item => {
+                const matchCat = currentCategory === 'all' || item.category === currentCategory;
+                const matchSearch = `${item.title} ${item.desc} ${item.notes}`.toLowerCase().includes(search);
+                return matchCat && matchSearch;
+            });
+            if (!filtered.length) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12"><p class="font-serif text-2xl mb-2">Aucune création ne correspond à votre recherche.</p><button onclick="resetFilters()" class="text-xs uppercase tracking-widest text-olive-700 underline">Réinitialiser</button></div>`;
+                return;
+            }
+            grid.innerHTML = filtered.map(item => {
+                const price = item.prices[currentPortion];
+                return `<article class="product-card rn-reveal group flex flex-col items-center text-center bg-white/85 hover:bg-white rounded-3xl p-6 sm:p-8 border border-gold-500/30 shadow-sm transition duration-500" data-tilt>
+                    <button type="button" onclick="openProductModal('${item.id}')" class="product-image-wrap relative w-56 h-56 sm:w-64 sm:h-64 mb-6 flex items-center justify-center" aria-label="Découvrir ${item.title}">
+                        <span class="absolute inset-4 rounded-full bg-gradient-to-tr from-cream-200 to-gold-300/30 border border-gold-400/40"></span>
+                        <img src="${getRnImageSrc(item.imgFile)}" data-rn-img="${item.imgFile}" data-rn-title="${item.title}" alt="${item.title}" loading="lazy" class="rn-img cake-pedestal-shadow relative z-10 w-48 h-48 sm:w-56 sm:h-56 object-cover rounded-full border-4 border-cream-50">
+                    </button>
+                    <h3 onclick="openProductModal('${item.id}')" class="cursor-pointer font-serif text-2xl sm:text-[26px] text-olive-900 group-hover:text-gold-600 transition leading-snug">${item.title}</h3>
+                    <span class="text-[10px] uppercase tracking-[0.22em] text-gold-600 font-semibold mt-1 mb-2">${item.subtitle}</span>
+                    <div class="font-serif text-2xl font-bold text-olive-800 mb-5">${price} <span class="text-sm font-normal">DT</span></div>
+                    <button type="button" onclick="openProductModal('${item.id}')" class="mt-auto inline-flex items-center gap-2 border-b border-gold-500 px-2 py-2 text-[10px] uppercase tracking-[.16em] text-olive-800 hover:text-gold-600">Découvrir la création <i class="ph ph-arrow-up-right"></i></button>
+                </article>`;
+            }).join('');
+            bindImageFallbacks();
+            observeReveals();
+            bindTiltCards();
+        }
+
+        function renderZipGallery() {
+            const container = document.getElementById('zipGalleryGrid');
+            if (!container) return;
+            let markup = '';
+            for (let i=1; i<=45; i++) {
+                const file = `img${i}.jpg`;
+                const caption = i===9 ? 'Logo officiel Reine Noisette' : `Photo originale Reine Noisette #${i}`;
+                markup += `<button type="button" class="gallery-tile rn-reveal group relative aspect-square rounded-2xl overflow-hidden border border-gold-500/40 bg-cream-200 shadow-sm hover:shadow-xl transition duration-500" onclick="openLightbox('${file}','${caption}')" aria-label="Agrandir ${caption}">
+                    <img src="${getRnImageSrc(file)}" data-rn-img="${file}" data-rn-title="${caption}" alt="${caption}" loading="lazy" class="rn-img w-full h-full object-contain">
+                    <span class="absolute inset-0 bg-gradient-to-t from-olive-900/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4 text-left"><span class="text-[9px] uppercase tracking-[.2em] text-gold-400">Reine Noisette</span><span class="font-serif text-base text-cream-50">${caption}</span></span>
+                </button>`;
+            }
+            container.innerHTML = markup;
+            bindImageFallbacks();
+            observeReveals();
+        }
+
+        function openProductModal(id) {
+            const item = productsData.find(p => p.id === id);
+            if (!item) return;
+            const modal = document.getElementById('productModal');
+            const img = document.getElementById('modalImg');
+            img.src = getRnImageSrc(item.imgFile);
+            img.alt = item.title;
+            img.onerror = function() { this.onerror=null; this.src=createRoyalPlaceholderSVG(item.imgFile,item.title); };
+            document.getElementById('modalSubtitle').textContent = `${item.subtitle} · ${portionLabels[currentPortion]}`;
+            document.getElementById('modalTitle').textContent = item.title;
+            document.getElementById('modalDesc').textContent = item.desc;
+            document.getElementById('modalNotes').textContent = item.notes;
+            document.getElementById('modalPrice').textContent = `${item.prices[currentPortion]} DT`;
+            modal.classList.remove('hidden'); modal.classList.add('flex');
+            document.body.classList.add('modal-open');
+        }
+        function closeProductModal() { const m=document.getElementById('productModal'); m.classList.add('hidden');m.classList.remove('flex');document.body.classList.remove('modal-open'); }
+
+        function openLightbox(imgFile, caption) {
+            const modal=document.getElementById('lightboxModal');
+            const img=document.getElementById('lightboxImg');
+            img.src=getRnImageSrc(imgFile);
+            img.onerror=function(){this.onerror=null;this.src=createRoyalPlaceholderSVG(imgFile,caption);};
+            document.getElementById('lightboxCaption').textContent=caption;
+            modal.classList.remove('hidden');modal.classList.add('flex');document.body.classList.add('modal-open');
+        }
+        function closeLightbox(event) {
+            if (event && event.target && event.currentTarget!==event.target) return;
+            const modal=document.getElementById('lightboxModal');modal.classList.add('hidden');modal.classList.remove('flex');document.body.classList.remove('modal-open');
+        }
+
+        function filterCategory(cat) {
+            currentCategory=cat;
+            document.querySelectorAll('.cat-tab').forEach(btn=>{
+                const active=btn.dataset.cat===cat;
+                btn.className=active?'cat-tab active bg-olive-800 text-gold-300 text-xs uppercase tracking-[0.16em] px-5 py-2.5 rounded-full transition border border-gold-500/40':'cat-tab bg-cream-100 hover:bg-cream-200 text-olive-800 text-xs uppercase tracking-[0.16em] px-5 py-2.5 rounded-full border border-cream-300 transition';
+            });
+            renderProducts();
+        }
+        function setPortionSize(size) {
+            currentPortion=size;
+            ['6p','10p','indiv'].forEach(key=>{const b=document.getElementById('sizeBtn-'+key);if(!b)return;b.className=key===size?'portion-btn bg-olive-800 text-gold-300 text-xs px-4 py-2 rounded-full tracking-wider font-medium transition shadow-sm':'portion-btn text-olive-800/80 hover:text-olive-900 text-xs px-4 py-2 rounded-full tracking-wider font-medium transition';});
+            renderProducts();
+        }
+        function resetFilters() { const s=document.getElementById('searchInput');if(s)s.value='';filterCategory('all'); }
+
+        function showToast(message) {
+            const toast=document.getElementById('toastNotification');
+            if(!toast)return;
+            const label=document.getElementById('toastMessage');if(label)label.textContent=message;
+            toast.classList.remove('hidden');toast.classList.add('flex');
+            window.clearTimeout(showToast._timer);showToast._timer=window.setTimeout(()=>{toast.classList.add('hidden');toast.classList.remove('flex');},2800);
+        }
+        function closeMobileMenu() { const m=document.getElementById('mobileMenu');if(m)m.classList.add('hidden');const b=document.getElementById('mobileMenuBtn');if(b)b.setAttribute('aria-expanded','false'); }
+
+        let revealObserver;
+        function observeReveals() {
+            if(!('IntersectionObserver' in window)){document.querySelectorAll('.rn-reveal').forEach(el=>el.classList.add('is-visible'));return;}
+            if(!revealObserver) revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}}),{threshold:.12,rootMargin:'0px 0px -35px 0px'});
+            document.querySelectorAll('.rn-reveal:not(.is-visible)').forEach(el=>revealObserver.observe(el));
+        }
+        function bindTiltCards() {
+            if(window.matchMedia('(pointer: coarse)').matches)return;
+            document.querySelectorAll('[data-tilt]').forEach(card=>{
+                if(card.dataset.tiltReady)return;card.dataset.tiltReady='1';
+                card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(1000px) translateY(-5px) rotateX(${-y*4}deg) rotateY(${x*5}deg)`;});
+                card.addEventListener('pointerleave',()=>{card.style.transform='';});
+            });
+        }
+        let scrollTick=false;
+        function updateScrollEffects() {
+            if(scrollTick)return;scrollTick=true;
+            requestAnimationFrame(()=>{
+                const y=window.scrollY||0;const max=document.documentElement.scrollHeight-window.innerHeight;
+                const progress=max>0?Math.min(100,(y/max)*100):0;
+                const bar=document.getElementById('brandProgress');if(bar)bar.style.width=progress+'%';
+                const nav=document.getElementById('navbar');if(nav)nav.classList.toggle('is-scrolled',y>30);
+                const hero=document.getElementById('heroVisual');
+                if(hero && y<window.innerHeight*1.35){const p=Math.min(1,y/(window.innerHeight*1.35));hero.style.transform=`translate3d(0,${p*42}px,0) rotateX(${p*5}deg) rotateY(${Math.sin(p*Math.PI)*3}deg)`;}
+                scrollTick=false;
+            });
+        }
+
+        document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeProductModal();closeLightbox();closeMobileMenu();}});
+        document.addEventListener('DOMContentLoaded',()=>{
+            renderProducts();renderZipGallery();bindImageFallbacks();observeReveals();
+            document.getElementById('currentYear').textContent=new Date().getFullYear();
+            const menuBtn=document.getElementById('mobileMenuBtn');
+            if(menuBtn)menuBtn.addEventListener('click',()=>{const menu=document.getElementById('mobileMenu');const open=menu.classList.toggle('hidden')===false;menuBtn.setAttribute('aria-expanded',String(open));});
+            window.addEventListener('scroll',updateScrollEffects,{passive:true});updateScrollEffects();
+            document.querySelectorAll('#histoire,#prix,#saison,#galerie,#sur-mesure,#contact').forEach(section=>section.classList.add('rn-reveal'));
+            observeReveals();
+        });
+    </script>
+</body>
+</html>

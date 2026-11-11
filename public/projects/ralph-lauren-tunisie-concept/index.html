@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ralph Lauren Tunisie — Unofficial Design Concept</title>
+<meta name="description" content="Polo Bear, Homme, Femme, Maison : la boutique Ralph Lauren Tunisie. Livraison offerte dès 300 TND.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--ivory:#f8f4ea;--sand:#efe8d8;--line:#ddd3bd;--ink:#101a2e;--mute:#5d6577;--gold:#b98c2f;--gold-d:#8f6a1b;--white:#fffdf8;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--ivory);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}a{color:inherit;text-decoration:none}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-d);font-weight:500}
+h2.title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.05;margin-top:10px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;transition:.4s var(--ease);position:relative;overflow:hidden}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:var(--ink)}
+.btn-line{border:1px solid currentColor}.btn-line:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-ink{background:var(--ink);color:#fff}.btn-ink:hover{background:var(--gold)}
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--gold);width:0;z-index:100}
+.topbar{background:var(--ink);color:#e9dfc6;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:9px 12px;overflow:hidden;white-space:nowrap}
+.topbar span{display:inline-block;animation:slide 14s linear infinite;padding-left:100%}
+@keyframes slide{to{transform:translateX(-100%)}}
+header{position:sticky;top:0;z-index:50;background:rgba(248,244,234,.9);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.4s}
+header.scrolled{border-color:var(--line);box-shadow:0 8px 30px -20px rgba(16,26,46,.4)}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:84px;transition:height .4s}
+header.scrolled .nav{height:66px}
+.menu{display:flex;gap:6px}
+.menu button{padding:9px 16px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border-radius:99px;transition:.3s}
+.menu button:hover{color:var(--gold-d)}.menu button.on{background:var(--gold);color:#fff}
+.logo{text-align:center;line-height:1}
+.logo b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;letter-spacing:.28em;display:block}
+.logo small{font-size:9px;letter-spacing:.5em;color:var(--gold-d);text-transform:uppercase}
+.tools{display:flex;justify-content:flex-end;align-items:center;gap:16px}
+.ibtn{position:relative;font-size:18px;padding:4px;transition:.3s}.ibtn:hover{color:var(--gold-d);transform:translateY(-2px)}
+.badge-n{position:absolute;top:-6px;right:-8px;background:var(--gold);color:#fff;font-size:9px;font-weight:600;min-width:16px;height:16px;border-radius:99px;display:grid;place-items:center}
+.badge-n.bump{animation:bump .5s}@keyframes bump{40%{transform:scale(1.6)}}
+#burger{display:none}
+.hero{position:relative;height:calc(100vh - 120px);min-height:560px;max-height:860px;overflow:hidden;background:var(--ink);color:#fff}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s}.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 9s linear}.slide.on img{transform:scale(1)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,26,46,.78),rgba(16,26,46,.15) 70%)}
+.hero-in{position:absolute;inset:0;z-index:2;display:flex;align-items:center}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(46px,8vw,112px);line-height:.95;margin:18px 0 24px}
+.hero h1 em{font-style:italic;color:#e3c27a}
+.hero .eyebrow{color:#e3c27a}.hero p{max-width:460px;font-weight:300;line-height:1.7;color:#e7e1d2;margin-bottom:34px}
+.hero .line{display:block;overflow:hidden}.hero .line>span{display:block;transform:translateY(110%);animation:up 1.2s var(--ease) forwards}
+.hero .line:nth-child(2)>span{animation-delay:.15s}.hero .fade{opacity:0;animation:fade 1s .5s forwards}
+@keyframes up{to{transform:none}}@keyframes fade{to{opacity:1}}
+.dots{position:absolute;z-index:3;bottom:30px;left:28px;display:flex;gap:10px}
+.dots button{width:34px;height:2px;background:rgba(255,255,255,.35);position:relative;overflow:hidden}
+.dots button.on::after{content:'';position:absolute;inset:0;background:var(--gold);animation:fill 6s linear}
+@keyframes fill{from{transform:translateX(-100%)}to{transform:none}}
+.scroll-hint{position:absolute;z-index:3;right:28px;bottom:30px;font-size:10px;letter-spacing:.3em;writing-mode:vertical-rl;text-transform:uppercase;color:#e7e1d2}
+.marquee{background:var(--sand);border-block:1px solid var(--line);padding:18px 0;overflow:hidden;white-space:nowrap}
+.marquee div{display:inline-block;animation:slide 30s linear infinite;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--gold-d)}
+.marquee em{margin:0 26px;font-style:normal;color:var(--ink)}
+section{padding:100px 0}
+.head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:24px;margin-bottom:48px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.tile{position:relative;height:clamp(420px,62vw,720px);overflow:hidden;cursor:pointer;color:#fff}
+.tile img.ts{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.15);transition:opacity 1.2s,transform 7s linear}.tile img.ts.on{opacity:1;transform:scale(1)}.tile:hover img.ts.on{transform:scale(1.07)}.tcap{font-size:13px;margin-top:8px;color:#efe6d2;font-weight:300;transition:opacity .4s}.tcap b{font-weight:500;color:#fff}
+.tile::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(16,26,46,.85),transparent 60%)}
+.tile div{position:absolute;z-index:2;left:32px;bottom:32px;right:32px}
+.tile small{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#e3c27a}
+.tile h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(38px,5vw,60px);letter-spacing:.06em}
+.tile span{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-top:6px;opacity:0;transform:translateY(10px);transition:.5s var(--ease)}.tile:hover span{opacity:1;transform:none}
+#shop{background:var(--white);border-block:1px solid var(--line)}
+.controls{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-bottom:36px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:10px 20px;border:1px solid var(--line);border-radius:99px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;transition:.3s}
+.chip:hover{border-color:var(--gold)}.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip i{font-style:normal;opacity:.5;margin-left:6px}
+select{background:transparent;border:1px solid var(--line);padding:10px 14px;font:inherit;font-size:12px;letter-spacing:.1em;outline:0}
+.count{font-size:12px;color:var(--mute);letter-spacing:.1em;align-self:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:36px 24px}
+.card{opacity:0;transform:translateY(30px);animation:cardin .8s var(--ease) forwards}@keyframes cardin{to{opacity:1;transform:none}}
+.ph{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,var(--sand),var(--line));cursor:pointer}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s,transform 1.2s var(--ease)}
+.ph .b{opacity:0}.card:hover .ph .b{opacity:1;transform:scale(1.05)}.card:hover .ph .a{opacity:0}
+.ph.err::before{content:'RL';position:absolute;inset:0;display:grid;place-items:center;font:400 64px 'Cormorant Garamond',serif;color:var(--gold);letter-spacing:.1em}
+.tag{position:absolute;top:12px;left:12px;z-index:2;background:var(--ivory);font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:6px 11px;font-weight:600}
+.promo{position:absolute;top:12px;left:auto;right:56px;background:var(--gold);color:#fff;z-index:2;font-size:10px;padding:6px 9px;font-weight:600}
+.heart{position:absolute;top:10px;right:10px;z-index:3;width:36px;height:36px;border-radius:50%;background:rgba(255,253,248,.92);display:grid;place-items:center;transition:.3s}
+.heart:hover{transform:scale(1.15)}.heart.on{color:var(--gold);animation:bump .5s}
+.qv-btn{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;background:var(--ink);color:#fff;padding:14px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;transform:translateY(130%);transition:.5s var(--ease)}.card:hover .qv-btn{transform:none}
+.low{position:absolute;z-index:2;left:12px;bottom:12px;font-size:10px;color:var(--gold-d);letter-spacing:.1em;background:var(--ivory);padding:4px 9px}.card:hover .low{opacity:0}
+.info{padding-top:16px}.info small{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-d);font-weight:500}
+.info h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px;line-height:1.15;margin:5px 0 4px}
+.info .fab{font-size:12px;color:var(--mute);font-weight:300}
+.swatches{display:flex;gap:6px;margin:10px 0}.sw{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.18)}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.price{font-size:17px;font-weight:500}.price s{color:var(--mute);font-weight:300;font-size:13px;margin-right:8px}
+.stars{color:var(--gold);font-size:11px;letter-spacing:2px}.stars span{color:var(--mute);letter-spacing:0;margin-left:4px;font-size:11px}
+.add{font-size:10px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:.3s}.add:hover{color:var(--gold-d);border-color:var(--gold)}
+.empty{text-align:center;padding:80px 0;display:none}.empty h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;margin-bottom:18px}
+.story{display:grid;grid-template-columns:1fr 1fr;min-height:640px;background:var(--ink);color:#fff;padding:0}
+.story img{width:100%;height:100%;object-fit:cover}.story>div{padding:90px 70px;align-self:center}
+.story h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,4.5vw,64px);line-height:1.05;margin:14px 0 22px}.story h2 em{color:#e3c27a}
+.story p{color:#cfc8b8;line-height:1.8;font-weight:300;margin-bottom:34px;max-width:480px}.story .eyebrow{color:#e3c27a}
+.stats{display:flex;gap:44px;margin-bottom:38px}.stats b{font:300 44px 'Cormorant Garamond',serif;color:#e3c27a;display:block}.stats span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#cfc8b8}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.svc{padding:34px 26px;border:1px solid var(--line);background:var(--white);transition:.5s var(--ease)}.svc:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 24px 40px -30px rgba(16,26,46,.5)}
+.svc i{font-size:26px;color:var(--gold);margin-bottom:18px}.svc h4{font:500 22px 'Cormorant Garamond',serif;margin-bottom:6px}.svc p{font-size:13px;color:var(--mute);line-height:1.7;font-weight:300}
+.shops{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.shop{padding:34px;background:var(--sand)}.shop h4{font:500 26px 'Cormorant Garamond',serif;margin-bottom:10px}.shop p{font-size:13px;line-height:1.9;color:var(--mute)}
+.news{background:var(--sand);text-align:center}.news form{display:flex;max-width:520px;margin:30px auto 0;border-bottom:1px solid var(--ink)}
+.news input{flex:1;background:none;border:0;padding:14px 4px;font:inherit;outline:0}.news button{font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+footer{background:var(--ink);color:#cfc8b8;padding:70px 0 30px}.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+footer h5{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#fff;margin-bottom:16px;font-weight:500}footer li{list-style:none;font-size:13px;margin-bottom:10px;font-weight:300}footer li:hover{color:#e3c27a;cursor:pointer}
+footer .logo b{color:#fff;text-align:left}.fcopy{border-top:1px solid #26324c;padding-top:22px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ov{position:fixed;inset:0;z-index:90;background:rgba(16,26,46,.5);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:.4s}.ov.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--ivory);padding:26px;display:flex;flex-direction:column;transform:translateX(100%);transition:.6s var(--ease)}.ov.open .drawer{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line)}.dh h3{font:500 24px 'Cormorant Garamond',serif;letter-spacing:.1em}
+.dbody{flex:1;overflow:auto;padding:18px 0}
+.ship{background:var(--sand);padding:14px;font-size:12px;margin-bottom:18px}.bar{height:3px;background:var(--line);margin-top:10px}.bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .8s var(--ease)}
+.li{display:grid;grid-template-columns:76px 1fr auto;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);animation:cardin .5s var(--ease) both}
+.li img{width:76px;height:98px;object-fit:cover;background:var(--sand)}.li h4{font:500 18px 'Cormorant Garamond',serif;line-height:1.1}.li small{font-size:11px;color:var(--mute)}
+.qty{display:inline-flex;border:1px solid var(--line);margin-top:8px}.qty button{width:28px;height:28px}.qty span{width:28px;text-align:center;line-height:28px;font-size:13px}.qty button:hover{background:var(--ink);color:#fff}
+.rm{font-size:11px;color:var(--mute);text-decoration:underline}
+.dfoot{border-top:1px solid var(--line);padding-top:18px}.tot{display:flex;justify-content:space-between;font-size:18px;margin-bottom:14px}.tot b{font-weight:500}
+.dfoot .btn{width:100%;justify-content:center}
+.none{text-align:center;color:var(--mute);padding:60px 0;font-size:14px}.none i{font-size:34px;color:var(--gold);display:block;margin-bottom:14px}
+.modal{position:absolute;inset:0;display:grid;place-items:center;padding:20px;pointer-events:none}
+.qv{pointer-events:auto;background:var(--ivory);width:min(1040px,100%);max-height:92vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;position:relative;transform:translateY(40px) scale(.97);opacity:0;transition:.6s var(--ease)}.ov.open .qv{transform:none;opacity:1}
+.qv-img{background:var(--sand);position:relative;min-height:500px}.qv-img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumbs{position:absolute;left:14px;bottom:14px;display:flex;gap:8px;z-index:2}.thumbs img{width:54px;height:68px;object-fit:cover;border:2px solid transparent;cursor:pointer;opacity:.8}.thumbs img.on{border-color:var(--gold);opacity:1}
+.qv-info{padding:40px 38px;overflow:auto}.qv-info h3{font:400 38px/1.05 'Cormorant Garamond',serif;margin:8px 0 10px}
+.x{position:absolute;top:12px;right:14px;z-index:5;font-size:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,253,248,.9);transition:.3s}.x:hover{transform:rotate(90deg);color:var(--gold-d)}
+.lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin:22px 0 10px;display:block}.lbl span{color:var(--mute);font-weight:300;letter-spacing:.05em;text-transform:none}
+.opts{display:flex;flex-wrap:wrap;gap:8px}.sz{min-width:46px;padding:10px 12px;border:1px solid var(--line);font-size:12px;transition:.3s}.sz:hover{border-color:var(--ink)}.sz.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.col{width:30px;height:30px;border-radius:50%;border:1px solid rgba(0,0,0,.2);outline:2px solid transparent;outline-offset:3px;transition:.3s}.col.on{outline-color:var(--gold)}
+.tabs{display:flex;gap:22px;border-bottom:1px solid var(--line);margin-top:26px}.tabs button{padding:10px 0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);border-bottom:2px solid transparent;margin-bottom:-1px}.tabs button.on{color:var(--ink);border-color:var(--gold)}
+.tabc{padding-top:16px;font-size:13px;line-height:1.8;color:var(--mute);font-weight:300;min-height:120px}.tabc ul{list-style:none}.tabc li::before{content:'◆';color:var(--gold);font-size:8px;margin-right:10px;vertical-align:2px}
+.buy{display:flex;gap:10px;margin-top:22px}.buy .btn{flex:1;justify-content:center}.buy .btn-line{flex:0 0 52px;padding:0;justify-content:center}
+.ref{font-size:11px;color:var(--mute);margin-top:14px;letter-spacing:.1em}
+#mm{background:var(--ivory)}#mm .in{padding:26px;display:flex;flex-direction:column;gap:6px}#mm button.l{text-align:left;font:400 34px 'Cormorant Garamond',serif;padding:10px 0;border-bottom:1px solid var(--line)}
+#toasts{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:120;display:flex;flex-direction:column;gap:8px;align-items:center}
+.toast{background:var(--ink);color:#fff;padding:13px 22px;font-size:12px;letter-spacing:.08em;animation:cardin .5s var(--ease) forwards,out .4s 2.6s forwards;border-left:3px solid var(--gold)}@keyframes out{to{opacity:0;transform:translateY(10px)}}
+.rv{opacity:0;transform:translateY(40px);transition:1s var(--ease)}.rv.in{opacity:1;transform:none}
+#top{position:fixed;right:20px;bottom:20px;z-index:60;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;opacity:0;transform:translateY(20px);transition:.4s;pointer-events:none}#top.show{opacity:1;transform:none;pointer-events:auto}
+@media(max-width:1000px){.menu{display:none}#burger{display:block;justify-self:start}.services{grid-template-columns:1fr 1fr}.story{grid-template-columns:1fr}.story img{height:380px}.story>div{padding:60px 28px}.shops{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}.qv{grid-template-columns:1fr;overflow:auto}.qv-img{min-height:380px}.logo b{font-size:22px}}
+@media(max-width:560px){.services{grid-template-columns:1fr}.tiles{gap:12px}.tile{height:300px}.tile div{left:14px;bottom:14px;right:14px}.tcap,.tile span{display:none}section{padding:70px 0}.wrap{padding:0 18px}.qv-info{padding:26px 20px}.scroll-hint{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.card{opacity:1;transform:none}}
+</style>
+<style>
+#chaima-concept-disclaimer{position:fixed;top:0;left:0;right:0;z-index:999999;background:#1b1630;color:#fff;text-align:center;padding:9px 16px;font:600 12px/1.4 Arial,sans-serif;letter-spacing:.02em;border-bottom:1px solid rgba(255,255,255,.2)}
+body{padding-top:38px!important}
+</style>
+</head>
+<body>
+<div id="chaima-concept-disclaimer">Independent design concept by Chaima Touj — not affiliated with or endorsed by Ralph Lauren.</div>
+<div id="progress"></div>
+<div class="topbar"><span>✦ Livraison de luxe offerte en Tunisie dès 300 TND &nbsp;&nbsp;✦&nbsp;&nbsp; Retours gratuits sous 14 jours &nbsp;&nbsp;✦&nbsp;&nbsp; Emballage cadeau signature</span></div>
+
+<header id="hd"><div class="wrap nav">
+  <div><button id="burger" class="ibtn" aria-label="Menu"><i class="fa-solid fa-bars-staggered"></i></button>
+    <nav class="menu" id="menu"></nav></div>
+  <a href="#" class="logo" data-cat="polo-bear"><b>RALPH LAUREN</b><small>Tunisie</small></a>
+  <div class="tools">
+    <button class="ibtn" id="wBtn" aria-label="Favoris"><i class="fa-regular fa-heart"></i><span class="badge-n" id="wN">0</span></button>
+    <button class="ibtn" id="cBtn" aria-label="Panier"><i class="fa-solid fa-bag-shopping"></i><span class="badge-n" id="cN">0</span></button>
+  </div>
+</div></header>
+
+<div class="ov" id="mm"><div class="in">
+  <div class="dh"><h3>MENU</h3><button class="ibtn" data-close><i class="fa-solid fa-xmark"></i></button></div>
+  <div id="mmL"></div></div></div>
+
+<section class="hero" style="padding:0" id="top-hero">
+  <div class="slide on"><img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=1920&auto=format&fit=crop" alt=""></div>
+  <div class="slide"><img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1920&auto=format&fit=crop" alt=""></div>
+  <div class="slide"><img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1920&auto=format&fit=crop" alt=""></div>
+  <div class="hero-in"><div class="wrap"><div>
+    <span class="eyebrow fade">Collection Polo Bear &amp; Maille 2026</span>
+    <h1><span class="line"><span>L’élégance</span></span><span class="line"><span><em>intemporelle</em></span></span></h1>
+    <p class="fade">Silhouettes épurées, mailles d’exception et l’ours le plus célèbre de la mode américaine, désormais livré en Tunisie.</p>
+    <div class="fade"><a href="#shop" class="btn btn-gold" data-cat="polo-bear">Collection Polo Bear</a> &nbsp; <a href="#shop" class="btn btn-line" data-cat="all">Tout le catalogue</a></div>
+  </div></div></div>
+  <div class="dots" id="dots"><button class="on"></button><button></button><button></button></div>
+  <div class="scroll-hint">Défiler</div>
+</section>
+
+<div class="marquee"><div id="mq"></div></div>
+
+<section><div class="wrap rv">
+  <div class="head"><div><span class="eyebrow">Univers &amp; collections</span><h2 class="title">Explorer les univers</h2></div></div>
+  <div class="tiles" id="tiles"></div>
+</div></section>
+
+<section id="shop"><div class="wrap">
+  <div class="head rv"><div><span class="eyebrow" id="shopEye">La sélection</span><h2 class="title" id="shopT">Collection Polo Bear</h2></div><p class="count" id="cnt"></p></div>
+  <div class="controls rv"><div class="chips" id="chips"></div>
+    <select id="sort"><option value="feat">Sélection</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option><option value="rate">Mieux notés</option></select></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty"><h3>Aucun article trouvé</h3><button class="btn btn-ink" data-cat="all">Voir tout le catalogue</button></div>
+</div></section>
+
+<section class="story" id="about">
+  <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1100&auto=format&fit=crop" alt="Maison Ralph Lauren" onerror="this.style.display='none'">
+  <div class="rv"><span class="eyebrow">Depuis 1967</span><h2>Un style de vie, <em>pas une saison</em></h2>
+    <p>Du premier polo à l’ours brodé des collèges américains, Ralph Lauren cultive un luxe discret, fait pour durer. Chaque pièce est choisie pour ses matières nobles et sa coupe, puis livrée chez vous en Tunisie dans son emballage signature.</p>
+    <div class="stats"><div><b data-n="16">0</b><span>Pièces</span></div><div><b data-n="58">0</b><span>Ans d’héritage</span></div><div><b data-n="48">0</b><span>Heures livraison</span></div></div>
+    <a href="#shop" class="btn btn-gold" data-cat="all">Découvrir</a></div>
+</section>
+
+<section><div class="wrap">
+  <div class="head rv"><div><span class="eyebrow">Service Ralph Lauren</span><h2 class="title">L’art de bien recevoir</h2></div></div>
+  <div class="services rv">
+    <div class="svc"><i class="fa-solid fa-truck-fast"></i><h4>Livraison express 48 h</h4><p>Partout en Tunisie, offerte dès 300 TND d’achat.</p></div>
+    <div class="svc"><i class="fa-solid fa-rotate-left"></i><h4>Retours gratuits</h4><p>14 jours pour changer d’avis, sans frais ni justification.</p></div>
+    <div class="svc"><i class="fa-solid fa-gift"></i><h4>Emballage signature</h4><p>Coffret et papier de soie offerts pour chaque commande.</p></div>
+    <div class="svc"><i class="fa-solid fa-shield-halved"></i><h4>Authenticité garantie</h4><p>Articles officiels, paiement sécurisé et à la livraison.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0" id="boutiques"><div class="wrap">
+  <div class="head rv"><div><span class="eyebrow">Nous trouver</span><h2 class="title">Nos boutiques</h2></div></div>
+  <div class="shops rv">
+    <div class="shop"><h4>Tunis – Les Berges du Lac</h4><p>Rue du Lac Léman<br>Lun–Sam · 10h–20h<br>+216 71 000 000</p></div>
+    <div class="shop"><h4>La Marsa</h4><p>Avenue Habib Bourguiba<br>Lun–Sam · 10h–20h<br>+216 71 000 001</p></div>
+    <div class="shop"><h4>Sousse – Sahloul</h4><p>Centre commercial Sahloul<br>Tous les jours · 10h–21h<br>+216 73 000 000</p></div>
+  </div>
+</div></section>
+
+<section class="news"><div class="wrap rv"><span class="eyebrow">Newsletter</span><h2 class="title">Rejoignez le club</h2>
+  <form id="nf"><input type="email" required placeholder="Votre adresse e-mail"><button>S’inscrire <i class="fa-solid fa-arrow-right"></i></button></form></div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="logo"><b>RALPH LAUREN</b><small>Tunisie</small></div><p style="margin-top:16px;font-size:13px;line-height:1.8;font-weight:300;max-width:300px">Le luxe américain intemporel, livré avec soin partout en Tunisie.</p></div>
+    <div><h5>Boutique</h5><ul><li data-cat="polo-bear">Polo Bear</li><li data-cat="homme">Homme</li><li data-cat="femme">Femme</li><li data-cat="maison">Maison</li></ul></div>
+    <div><h5>Aide</h5><ul><li>Livraison</li><li>Retours</li><li>Guide des tailles</li><li>Contact</li></ul></div>
+    <div><h5>Suivez-nous</h5><ul><li><i class="fa-brands fa-instagram"></i> Instagram</li><li><i class="fa-brands fa-facebook"></i> Facebook</li><li><i class="fa-brands fa-whatsapp"></i> WhatsApp</li></ul></div>
+  </div>
+  <div class="fcopy"><span>© 2026 Ralph Lauren Tunisie. Maquette de démonstration.</span><span>Paiement à la livraison · Carte bancaire</span></div>
+</div></footer>
+
+<button id="top" aria-label="Haut"><i class="fa-solid fa-arrow-up"></i></button>
+<div class="ov" id="cartOv"><div class="drawer"><div class="dh"><h3>MON PANIER (<span id="cN2">0</span>)</h3><button class="ibtn" data-close><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="dbody"><div class="ship"><span id="shipT"></span><div class="bar"><i id="shipB"></i></div></div><div id="cItems"></div></div>
+  <div class="dfoot"><div class="tot"><span>Total</span><b id="cTot">0 TND</b></div><button class="btn btn-ink" id="chk">Commander en Tunisie</button></div></div></div>
+<div class="ov" id="wishOv"><div class="drawer"><div class="dh"><h3>MES FAVORIS (<span id="wN2">0</span>)</h3><button class="ibtn" data-close><i class="fa-solid fa-xmark"></i></button></div><div class="dbody" id="wItems"></div></div></div>
+<div class="ov" id="qvOv"><div class="modal"><div class="qv" id="qv"></div></div></div>
+<div id="toasts"></div>
+
+<script>
+/* --- PRODUCTS DATA --- */
+const U = id => `https://images.unsplash.com/photo-${id}?q=80&w=900&auto=format&fit=crop`;
+const CATS = { 'polo-bear': 'Polo Bear', homme: 'Homme', femme: 'Femme', maison: 'Maison' };
+const PRODUCTS = [
+  { id:1, ref:'RL-PB-001', cat:'polo-bear', title:'Pull Maille Oversize Vert Olive', price:890, old:1050, badge:'Iconique', rating:4.9, reviews:128, stock:6,
+    colors:[['Vert Olive','#5b6038'],['Crème','#efe6d2'],['Marine','#1f2a44']], sizes:['S','M','L','XL'],
+    fabric:'100% laine mérinos', img:[U('1576995853123-5a10305d93c0'),U('1620799140408-edc6dcb6d633')],
+    desc:"Maille lourde en tricot oversize d'un vert olive profond, brodée de l'ours Polo Bear sur la poitrine.",
+    details:['Ours Polo Bear brodé main','Coupe oversize, épaules tombantes','Bords-côtes à la finition double','Fabriqué en Italie'], care:'Lavage à la main à 30°. Séchage à plat.' },
+  { id:2, ref:'RL-PB-002', cat:'polo-bear', title:'Pull Torsadé Jaune Soleil', price:750, badge:'Édition spéciale', rating:4.8, reviews:96, stock:4,
+    colors:[['Jaune Soleil','#e0b83a'],['Ivoire','#f4eee0']], sizes:['S','M','L','XL'],
+    fabric:'100% coton peigné premium', img:[U('1620799140408-edc6dcb6d633'),U('1576995853123-5a10305d93c0')],
+    desc:"Torsades amples d'une teinte jaune lumineuse. Tombé impeccable avec col montant pour une allure preppy affirmée.",
+    details:['Point torsadé grande maille','Col montant côtelé','Écusson Polo Bear en intarsia','Doux et respirant'], care:'Lavage en machine à 30° cycle délicat.' },
+  { id:3, ref:'RL-PB-003', cat:'polo-bear', title:'Cardigan Polo Bear Rouge Écarlate', price:980, badge:'Nouveauté', rating:4.9, reviews:74, stock:8,
+    colors:[['Écarlate','#9c1f26'],['Vert Anglais','#24412f']], sizes:['S','M','L','XL'],
+    fabric:'85% laine, 15% cachemire', img:[U('1434389677669-e08b4cac3105'),U('1576995853123-5a10305d93c0')],
+    desc:"Cardigan boutonné en maille douce, patte de boutons nacrés et ours brodé à l'effigie du club.",
+    details:['Boutons nacrés gravés','Deux poches plaquées','Ours brodé sur la poitrine','Maille mi-lourde'], care:'Nettoyage à sec recommandé ou lavage main à froid.' },
+  { id:4, ref:'RL-PB-004', cat:'polo-bear', title:'Bonnet & Écharpe Polo Bear', price:320, badge:'Coffret cadeau', rating:4.7, reviews:210, stock:15,
+    colors:[['Marine','#1f2a44'],['Crème','#efe6d2']], sizes:['Unique'],
+    fabric:'100% laine d’agneau', img:[U('1520903920243-00d872a2d1c9'),U('1620799140408-edc6dcb6d633')],
+    desc:"Ensemble bonnet et écharpe en laine d'agneau ultra-douce, jacquard Polo Bear.",
+    details:['Jacquard tricoté','Écharpe 180 × 30 cm','Coffret cadeau inclus','Unisexe'], care:'Lavage à la main à 30°. Séchage à plat.' },
+  { id:5, ref:'RL-HM-005', cat:'homme', title:'Veste Zippée Minimaliste Chocolat', price:1250, badge:'Purple Label', rating:4.9, reviews:58, stock:3,
+    colors:[['Chocolat','#4a3426'],['Anthracite','#2b2d31']], sizes:['S','M','L','XL','XXL'],
+    fabric:'Laine & soie', img:[U('1551028719-00167b16eac5'),U('1548883354-7622d03aca27')],
+    desc:"Coupe zippée aux lignes très épurées. Brun chocolat chaleureux d'inspiration sartoriale italienne.",
+    details:['Zip YKK métal laiton','Doublure en cupro','Poches passepoilées','Coupe slim'], care:'Nettoyage à sec uniquement.' },
+  { id:6, ref:'RL-HM-006', cat:'homme', title:'Veste Zippée Laine Gris Clair', price:1180, badge:'Nouveauté', rating:4.7, reviews:41, stock:7,
+    colors:[['Gris Clair','#b9b9b6'],['Sable','#cdbb99']], sizes:['S','M','L','XL'],
+    fabric:'100 % laine wool-touch', img:[U('1548883354-7622d03aca27'),U('1551028719-00167b16eac5')],
+    desc:"Veste courte à fermeture zippée intégrale. Coupe contemporaine, facile à associer.",
+    details:['Col montant','Fermeture intégrale','Poches latérales zippées','Coupe regular'], care:'Nettoyage à sec recommandé.' },
+  { id:7, ref:'RL-HM-007', cat:'homme', title:'Polo Classique Mesh Marine', price:420, badge:'Best-seller', rating:4.9, reviews:540, stock:30,
+    colors:[['Marine','#1f2a44'],['Blanc','#fbfaf6'],['Vert','#2f5a3f'],['Rouge','#a3232b']], sizes:['S','M','L','XL','XXL'],
+    fabric:'100 % coton piqué mesh', img:[U('1489987707025-afc232f7ea0f'),U('1507003211169-0a1dd7228f2d')],
+    desc:"Le polo emblématique en coton piqué mesh, pony brodé et col côtelé.",
+    details:['Pony brodé signature','Fentes latérales','Patte à 2 boutons nacrés','Coupe Custom Fit'], care:'Lavage en machine à 40°.' },
+  { id:8, ref:'RL-HM-008', cat:'homme', title:'Chemise Oxford Bleu Ciel', price:480, badge:'Intemporel', rating:4.8, reviews:187, stock:20,
+    colors:[['Bleu Ciel','#b7cde3'],['Blanc','#fbfaf6']], sizes:['S','M','L','XL','XXL'],
+    fabric:'100 % coton oxford', img:[U('1507003211169-0a1dd7228f2d'),U('1489987707025-afc232f7ea0f')],
+    desc:"Chemise en oxford brossé, col boutonné et poche poitrine.",
+    details:['Col button-down','Tissu oxford lavé','Pony brodé discret','Coupe regular'], care:'Lavage en machine à 40°.' },
+  { id:9, ref:'RL-FM-009', cat:'femme', title:'Robe Portefeuille Soie Ivoire', price:1450, badge:'Collection', rating:4.9, reviews:63, stock:5,
+    colors:[['Ivoire','#f1ead9'],['Noir','#17181a']], sizes:['XS','S','M','L'],
+    fabric:'100 % soie crêpe de Chine', img:[U('1539109136881-3be0616acf4b'),U('1515886657613-9f3515b0c78f')],
+    desc:"Robe portefeuille fluide en soie, taille marquée et jupe mi-longue.",
+    details:['Cache-cœur ceinturé','Doublure en soie','Longueur mi-mollet','Fermeture invisible'], care:'Nettoyage à sec uniquement.' },
+  { id:10, ref:'RL-FM-010', cat:'femme', title:'Blazer Croisé Laine Camel', price:1320, badge:'Nouveauté', rating:4.8, reviews:52, stock:6,
+    colors:[['Camel','#b88c5a'],['Noir','#17181a']], sizes:['XS','S','M','L'],
+    fabric:'Laine vierge mélangée', img:[U('1515886657613-9f3515b0c78f'),U('1445205170230-053b83016050')],
+    desc:"Blazer croisé structuré à boutons dorés. Épaules affirmées, coupe longue.",
+    details:['Six boutons dorés gravés','Revers cranté','Double fente dos','Entièrement doublé'], care:'Nettoyage à sec uniquement.' },
+  { id:11, ref:'RL-FM-011', cat:'femme', title:'Pull Col V Cachemire Rose Poudré', price:1090, badge:'Cachemire', rating:4.9, reviews:89, stock:9,
+    colors:[['Rose Poudré','#e2c2bd'],['Gris','#a8a8a5'],['Marine','#1f2a44']], sizes:['XS','S','M','L'],
+    fabric:'100 % cachemire grade A', img:[U('1445205170230-053b83016050'),U('1434389677669-e08b4cac3105')],
+    desc:"Pull en cachemire d'une douceur rare, col V net et coupe légèrement ajustée.",
+    details:['Fil 2 bouts','Finitions pleines mailles','Bords-côtes fins','Coupe ajustée'], care:'Lavage main à froid avec shampoing doux.' },
+  { id:12, ref:'RL-FM-012', cat:'femme', title:'Sac Cuir Saddle Cognac', price:2150, badge:'Maroquinerie', rating:5.0, reviews:34, stock:2,
+    colors:[['Cognac','#8a4b24'],['Noir','#17181a']], sizes:['Unique'],
+    fabric:'Cuir de veau pleine fleur', img:[U('1548036328-c9fa89d128fa'),U('1584917865442-de89df76afd3')],
+    desc:"Sac inspiré des selles équestres, en cuir de veau pleine fleur, anse réglable.",
+    details:['Dim. 24 × 17 × 8 cm','Bandoulière amovible','Intérieur en daim','Dustbag inclus'], care:'Nourrir avec crème cuir.' },
+  { id:13, ref:'RL-MS-013', cat:'maison', title:'Plaid Cachemire Beige Chevrons', price:1650, badge:'Maison', rating:4.9, reviews:41, stock:8,
+    colors:[['Beige','#d6c6a8'],['Gris','#9d9d9a']], sizes:['130 × 180 cm'],
+    fabric:'100 % cachemire', img:[U('1616486338812-3dadae4b4ace'),U('1555041469-a586c61ea9bc')],
+    desc:"Plaid tissé en cachemire à motif chevrons, frange torsadée.",
+    details:['Tissage chevrons','Franges torsadées main','130 × 180 cm','Livré en boîte'], care:'Nettoyage à sec recommandé.' },
+  { id:14, ref:'RL-MS-014', cat:'maison', title:'Parure de Lit Percale Blanc Liseré Marine', price:980, badge:'Nouveauté', rating:4.8, reviews:77, stock:12,
+    colors:[['Blanc / Marine','#e8e6e0']], sizes:['160 × 200','180 × 200'],
+    fabric:'Percale de coton 300 fils', img:[U('1522771739844-6a9f6d5f14af'),U('1616486338812-3dadae4b4ace')],
+    desc:"Parure en percale fraîche et croustillante, liseré marine. Housse et deux taies.",
+    details:['300 fils/cm²','Oeko-Tex® certifié','Boutons nacre','Housse + 2 taies'], care:'Lavage machine à 60°.' },
+  { id:15, ref:'RL-MS-015', cat:'maison', title:'Coussin Jacquard Polo Bear', price:360, badge:'Cadeau', rating:4.7, reviews:112, stock:25,
+    colors:[['Vert','#24412f'],['Bordeaux','#5a1f2a']], sizes:['45 × 45 cm'],
+    fabric:'Laine & coton jacquard', img:[U('1555041469-a586c61ea9bc'),U('1522771739844-6a9f6d5f14af')],
+    desc:"Coussin jacquard à l'ours Polo Bear, dos en velours.",
+    details:['45 × 45 cm','Dos velours','Fermeture zip invisible','Garnissage plumes'], care:'Housse nettoyage à sec.' },
+  { id:16, ref:'RL-MS-016', cat:'maison', title:'Bougie Parfumée Boisé Cuir', price:240, badge:'Parfum', rating:4.8, reviews:150, stock:40,
+    colors:[['Cuir & Cèdre','#5b3b24']], sizes:['220 g'],
+    fabric:'Cire végétale, verre ambré', img:[U('1602874801007-bd458bb1b8b6'),U('1616486338812-3dadae4b4ace')],
+    desc:"Notes de cuir, cèdre et tabac blond. Combustion 50h.",
+    details:['220 g · 50 h','Mèche coton','Cire végétale','Vase réutilisable'], care:'Couper la mèche à 5 mm.' }
+];
+
+/* --- APP LOGIC --- */
+(() => {
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const fmt = n => n.toLocaleString('fr-FR') + ' TND';
+const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d } catch { return d } };
+const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)) } catch {} };
+let cart = load('rl_cart', []), wish = load('rl_wish', []), cat = 'polo-bear', query = '', sort = 'feat', cur = null, sel = {};
+const P = id => PRODUCTS.find(p => p.id === id);
+const ORDER = ['polo-bear', 'homme', 'femme', 'maison'];
+const stars = r => '★'.repeat(Math.round(r)) + '☆'.repeat(5 - Math.round(r));
+
+if ($('#menu')) $('#menu').innerHTML = ORDER.map(c => `<button data-cat="${c}">${CATS[c]}</button>`).join('');
+if ($('#mmL')) $('#mmL').innerHTML = [...ORDER, 'all'].map(c => `<button class="l" data-cat="${c}">${CATS[c] || 'Tout le catalogue'}</button>`).join('');
+if ($('#chips')) $('#chips').innerHTML = [...ORDER, 'all'].map(c => `<button class="chip" data-cat="${c}">${CATS[c] || 'Tous'}<i>${c === 'all' ? PRODUCTS.length : PRODUCTS.filter(p => p.cat === c).length}</i></button>`).join('');
+const tileSub = { 'polo-bear': 'Édition spéciale', homme: 'Collection', femme: 'Collection', maison: 'Art de vivre' };
+if ($('#tiles')) {
+  $('#tiles').innerHTML = ORDER.map(c => { const ps = PRODUCTS.filter(p => p.cat === c); return `<div class="tile" data-cat="${c}">
+    ${ps.map((p, i) => `<img class="ts ${i ? '' : 'on'}" src="${p.img[0]}" alt="${p.title}" loading="lazy" onerror="this.remove()">`).join('')}
+    <div><small>${tileSub[c]}</small><h3>${CATS[c].toUpperCase()}</h3>
+    <p class="tcap"><b>${ps[0].title}</b> · ${fmt(ps[0].price)}</p><span>Découvrir la collection →</span></div></div>` }).join('');
+  $$('.tile').forEach((t, k) => { const ims = [...t.querySelectorAll('.ts')], ps = PRODUCTS.filter(p => p.cat === t.dataset.cat); let n = 0;
+    setInterval(() => { if (document.hidden || ims.length < 2) return; ims[n].classList.remove('on'); n = (n + 1) % ims.length; ims[n].classList.add('on');
+      const c = t.querySelector('.tcap'); if (c) { c.style.opacity = 0; setTimeout(() => { c.innerHTML = `<b>${ps[n].title}</b> · ${fmt(ps[n].price)}`; c.style.opacity = 1 }, 400) } }, 3800 + k * 700) });
+}
+if ($('#mq')) $('#mq').innerHTML = Array(6).fill('Maille d’exception<em>◆</em>Polo Bear<em>◆</em>Cachemire<em>◆</em>Savoir-faire italien<em>◆</em>Luxe discret<em>◆</em>').join('');
+
+document.addEventListener('click', e => {
+  const w = e.target.closest('[data-w]');
+  if (w) {
+    e.preventDefault(); e.stopPropagation();
+    toggleWish(+w.dataset.w); return;
+  }
+  const a = e.target.closest('[data-add]');
+  if (a) {
+    e.preventDefault(); e.stopPropagation();
+    const p = P(+a.dataset.add);
+    if (p) addCart(p, p.colors[0][0], p.sizes[Math.min(1, p.sizes.length - 1)], 1);
+    return;
+  }
+  const c = e.target.closest('[data-cat]');
+  if (c) {
+    e.preventDefault();
+    setCat(c.dataset.cat); closeAll();
+    if ($('#shop')) $('#shop').scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+  const q = e.target.closest('[data-qv]');
+  if (q) {
+    e.preventDefault(); openQV(+q.dataset.qv); return;
+  }
+  if (e.target.closest('[data-close]') || e.target.classList.contains('ov') || e.target.classList.contains('modal')) {
+    closeAll();
+  }
+});
+
+function openOv(id) { closeAll(); $(id).classList.add('open'); document.body.style.overflow = 'hidden' }
+function closeAll() { $$('.ov').forEach(o => o.classList.remove('open')); document.body.style.overflow = '' }
+document.addEventListener('keydown', e => e.key === 'Escape' && closeAll());
+if ($('#burger')) $('#burger').onclick = () => openOv('#mm'); 
+if ($('#cBtn')) $('#cBtn').onclick = () => { renderCart(); openOv('#cartOv') }; 
+if ($('#wBtn')) $('#wBtn').onclick = () => { renderWish(); openOv('#wishOv') };
+
+function setCat(c) {
+  cat = c; query = '';
+  $$('.menu button, .chip, #mmL button').forEach(b => b.classList.toggle('on', b.dataset.cat === c));
+  if ($('#shopT')) $('#shopT').textContent = c === 'all' ? 'Toute la collection' : 'Collection ' + (CATS[c] || c);
+  renderGrid();
+}
+function list() {
+  let r = PRODUCTS.filter(p => (cat === 'all' || p.cat === cat) && (!query || (p.title + p.cat + CATS[p.cat] + p.fabric + p.desc).toLowerCase().includes(query)));
+  if (sort === 'asc') r.sort((a, b) => a.price - b.price); 
+  if (sort === 'desc') r.sort((a, b) => b.price - a.price); 
+  if (sort === 'rate') r.sort((a, b) => b.rating - a.rating);
+  return r;
+}
+function renderGrid() {
+  const r = list();
+  if ($('#cnt')) $('#cnt').textContent = r.length + ' article' + (r.length > 1 ? 's' : '');
+  if ($('#empty')) $('#empty').style.display = r.length ? 'none' : 'block';
+  if ($('#grid')) {
+    $('#grid').innerHTML = r.map((p, i) => `
+    <article class="card" style="animation-delay:${i * 70}ms">
+      <div class="ph" data-qv="${p.id}">
+        <img class="a" src="${p.img[0]}" alt="${p.title}" loading="lazy" onerror="this.parentNode.classList.add('err');this.remove()">
+        <img class="b" src="${p.img[1]}" alt="" loading="lazy" onerror="this.remove()">
+        <span class="tag">${p.badge}</span>${p.old ? `<span class="promo">-${Math.round((1 - p.price / p.old) * 100)}%</span>` : ''}
+        ${p.stock <= 5 ? `<span class="low">Plus que ${p.stock}</span>` : ''}
+        <button class="heart ${wish.includes(p.id) ? 'on' : ''}" data-w="${p.id}" aria-label="Favori"><i class="${wish.includes(p.id) ? 'fa-solid' : 'fa-regular'} fa-heart"></i></button>
+        <button class="qv-btn" data-qv="${p.id}">Aperçu &amp; détails</button>
+      </div>
+      <div class="info"><small>${CATS[p.cat]}</small><h3>${p.title}</h3><div class="fab">${p.fabric}</div>
+        <div class="swatches">${p.colors.map(c => `<span class="sw" title="${c[0]}" style="background:${c[1]}"></span>`).join('')}</div>
+        <div class="stars">${stars(p.rating)}<span>(${p.reviews})</span></div>
+        <div class="row"><span class="price">${p.old ? `<s>${fmt(p.old)}</s>` : ''}${fmt(p.price)}</span><button class="add" data-add="${p.id}">Ajouter</button></div></div>
+    </article>`).join('');
+  }
+}
+if ($('#sort')) $('#sort').onchange = e => { sort = e.target.value; renderGrid() };
+
+function openQV(id, tab = 0) {
+  const p = P(id); if(!p) return; cur = p; sel = { color: p.colors[0][0], size: p.sizes[Math.min(1, p.sizes.length - 1)], qty: 1, img: 0, tab };
+  paintQV(); openOv('#qvOv');
+}
+function paintQV() {
+  const p = cur, tabs = ['Description', 'Détails', 'Entretien', 'Livraison'];
+  const tc = [`<p>${p.desc}</p><p style="margin-top:10px"><b style="color:var(--ink);font-weight:500">Composition :</b> ${p.fabric}</p>`,
+    `<ul>${p.details.map(d => `<li>${d}</li>`).join('')}</ul>`, `<p>${p.care}</p>`,
+    `<ul><li>Livraison express 48 h en Tunisie</li><li>Offerte dès 300 TND</li><li>Retours gratuits sous 14 jours</li><li>Paiement à la livraison possible</li></ul>`];
+  if ($('#qv')) {
+    $('#qv').innerHTML = `<button class="x" data-close>×</button>
+    <div class="qv-img"><img src="${p.img[sel.img]}" alt="${p.title}" onerror="this.style.opacity=0"><div class="thumbs">${p.img.map((s, i) => `<img src="${s}" class="${i === sel.img ? 'on' : ''}" data-th="${i}" alt="">`).join('')}</div></div>
+    <div class="qv-info"><span class="eyebrow">${CATS[p.cat]} · ${p.badge}</span><h3>${p.title}</h3>
+      <div class="stars">${stars(p.rating)}<span>${p.rating} · ${p.reviews} avis</span></div>
+      <div class="price" style="font-size:26px;margin-top:10px">${p.old ? `<s>${fmt(p.old)}</s>` : ''}${fmt(p.price)}</div>
+      <span class="lbl">Couleur : <span>${sel.color}</span></span><div class="opts">${p.colors.map(c => `<button class="col ${c[0] === sel.color ? 'on' : ''}" data-col="${c[0]}" style="background:${c[1]}" title="${c[0]}"></button>`).join('')}</div>
+      <span class="lbl">Taille : <span>${sel.size}</span></span><div class="opts">${p.sizes.map(s => `<button class="sz ${s === sel.size ? 'on' : ''}" data-sz="${s}">${s}</button>`).join('')}</div>
+      <div class="tabs">${tabs.map((t, i) => `<button class="${i === sel.tab ? 'on' : ''}" data-tab="${i}">${t}</button>`).join('')}</div><div class="tabc">${tc[sel.tab]}</div>
+      <div class="buy"><div class="qty" style="margin:0"><button data-q="-1">−</button><span>${sel.qty}</span><button data-q="1">+</button></div>
+        <button class="btn btn-ink" id="qvAdd">Ajouter · ${fmt(p.price * sel.qty)}</button>
+        <button class="btn btn-line" data-w="${p.id}"><i class="${wish.includes(p.id) ? 'fa-solid' : 'fa-regular'} fa-heart"></i></button></div>
+      <p class="ref">Réf. ${p.ref} · ${p.stock <= 5 ? 'Stock limité : ' + p.stock + ' restants' : 'En stock'}</p></div>`;
+  }
+}
+if ($('#qv')) {
+  $('#qv').addEventListener('click', e => {
+    const t = e.target.closest('button,img'); if (!t) return; const d = t.dataset;
+    if (d.th) sel.img = +d.th; else if (d.col) sel.color = d.col; else if (d.sz) sel.size = d.sz; else if (d.tab) sel.tab = +d.tab;
+    else if (d.q) sel.qty = Math.max(1, Math.min(10, sel.qty + +d.q)); else if (t.id === 'qvAdd') { addCart(cur, sel.color, sel.size, sel.qty); return } else return;
+    paintQV();
+  });
+}
+
+function addCart(p, color, size, qty) {
+  const k = cart.find(i => i.id === p.id && i.color === color && i.size === size);
+  k ? k.qty += qty : cart.push({ id: p.id, color, size, qty });
+  persist(); toast('Ajouté : ' + p.title); bump('#cN'); renderCart(); openOv('#cartOv');
+}
+function renderCart() {
+  const n = cart.reduce((s, i) => s + i.qty, 0), sub = cart.reduce((s, i) => s + P(i.id).price * i.qty, 0), T = 300;
+  if ($('#cN')) $('#cN').textContent = n;
+  if ($('#cN2')) $('#cN2').textContent = n; 
+  if ($('#cTot')) $('#cTot').textContent = fmt(sub);
+  if ($('#shipB')) $('#shipB').style.width = Math.min(100, sub / T * 100) + '%';
+  if ($('#shipT')) $('#shipT').innerHTML = sub >= T ? '🎁 <b>Livraison offerte débloquée !</b>' : `Plus que <b>${fmt(T - sub)}</b> pour la livraison offerte`;
+  if ($('#cItems')) {
+    $('#cItems').innerHTML = cart.length ? cart.map((i, x) => { const p = P(i.id); return `<div class="li"><img src="${p.img[0]}" alt="" onerror="this.style.opacity=0"><div><h4>${p.title}</h4><small>${i.color} · ${i.size}</small><br>
+      <div class="qty"><button data-cq="${x}" data-d="-1">−</button><span>${i.qty}</span><button data-cq="${x}" data-d="1">+</button></div></div>
+      <div style="text-align:right"><b style="font-weight:500">${fmt(p.price * i.qty)}</b><br><button class="rm" data-rm="${x}">Retirer</button></div></div>` }).join('')
+      : `<div class="none"><i class="fa-solid fa-bag-shopping"></i>Votre panier est vide.</div>`;
+  }
+}
+if ($('#cItems')) {
+  $('#cItems').addEventListener('click', e => {
+    const c = e.target.closest('[data-cq]'), r = e.target.closest('[data-rm]');
+    if (c) { const i = cart[+c.dataset.cq]; i.qty += +c.dataset.d; if (i.qty < 1) cart.splice(+c.dataset.cq, 1) }
+    if (r) cart.splice(+r.dataset.rm, 1);
+    persist(); renderCart();
+  });
+}
+if ($('#chk')) {
+  $('#chk').onclick = () => {
+    if (!cart.length) return toast('Votre panier est vide');
+    const ref = 'RL-' + Math.floor(100000 + Math.random() * 900000);
+    cart = []; persist(); renderCart(); closeAll(); toast('Merci ! Commande ' + ref + ' confirmée ✦');
+  };
+}
+function persist() { 
+  save('rl_cart', cart); save('rl_wish', wish); 
+  if ($('#cN')) $('#cN').textContent = cart.reduce((s, i) => s + i.qty, 0); 
+  if ($('#wN')) $('#wN').textContent = wish.length 
+}
+
+function toggleWish(id) {
+  wish = wish.includes(id) ? wish.filter(x => x !== id) : [...wish, id];
+  persist(); bump('#wN'); renderGrid(); renderWish(); if ($('#qvOv') && $('#qvOv').classList.contains('open')) paintQV();
+  toast(wish.includes(id) ? 'Ajouté aux favoris ♥' : 'Retiré des favoris');
+}
+function renderWish() {
+  if ($('#wN2')) $('#wN2').textContent = wish.length;
+  if ($('#wItems')) {
+    $('#wItems').innerHTML = wish.length ? wish.map(id => { const p = P(id); return `<div class="li"><img src="${p.img[0]}" alt="" onerror="this.style.opacity=0"><div><h4>${p.title}</h4><small>${CATS[p.cat]}</small><br><button class="add" style="margin-top:10px" data-qv="${p.id}">Voir</button></div><div style="text-align:right"><b style="font-weight:500">${fmt(p.price)}</b><br><button class="rm" data-w="${p.id}">Retirer</button></div></div>` }).join('')
+      : `<div class="none"><i class="fa-regular fa-heart"></i>Aucun favori pour l’instant.</div>`;
+  }
+}
+function bump(s) { const e = $(s); if (e) { e.classList.remove('bump'); void e.offsetWidth; e.classList.add('bump') } }
+function toast(m) { const t = document.createElement('div'); t.className = 'toast'; t.textContent = m; if ($('#toasts')) $('#toasts').appendChild(t); setTimeout(() => t.remove(), 3000) }
+if ($('#nf')) $('#nf').onsubmit = e => { e.preventDefault(); e.target.reset(); toast('Bienvenue au club Ralph Lauren ✦') };
+
+let si = 0, timer;
+const slides = $$('.slide'), dots = $$('#dots button');
+function go(i) { 
+  if (!slides.length) return;
+  si = i; 
+  slides.forEach((s, x) => s.classList.toggle('on', x === i)); 
+  dots.forEach((d, x) => { d.classList.remove('on'); void d.offsetWidth; d.classList.toggle('on', x === i) }); 
+  clearInterval(timer); 
+  timer = setInterval(() => go((si + 1) % slides.length), 6000) 
+}
+if (dots.length) dots.forEach((d, i) => d.onclick = () => go(i)); 
+if (slides.length) go(0);
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); e.target.querySelectorAll('[data-n]').forEach(count) } }), { threshold: .15 });
+$$('.rv').forEach(el => io.observe(el));
+function count(el) { const n = +el.dataset.n; let v = 0; const t = setInterval(() => { v += Math.ceil(n / 40); if (v >= n) { v = n; clearInterval(t) } el.textContent = v }, 30) }
+
+addEventListener('scroll', () => {
+  const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
+  if ($('#progress')) $('#progress').style.width = (y / h * 100) + '%'; 
+  if ($('#hd')) $('#hd').classList.toggle('scrolled', y > 40); 
+  if ($('#top')) $('#top').classList.toggle('show', y > 600);
+  const im = $('.slide.on img'); if (im && y < innerHeight) im.parentNode.style.transform = `translateY(${y * .15}px)`;
+}, { passive: true });
+if ($('#top')) $('#top').onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
+
+setCat('polo-bear'); persist(); renderCart(); renderWish();
+})();
+</script>
+</body>
+</html>
